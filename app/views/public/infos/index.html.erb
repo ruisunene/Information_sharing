@@ -1,0 +1,12 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>新規情報投稿</h2>
+      <%= render 'form', info: Info.new %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>共有情報一覧</h2>
+      <%= render 'index', infos: @infos%>
+    </div>
+  </div>
+</div>

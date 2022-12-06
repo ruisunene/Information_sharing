@@ -1,0 +1,22 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>投稿日時</th>
+      <th>投稿者</th>
+      <th>情報名</th>
+      <th>ジャンル名</th>
+      <th>コメント数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% infos.each do |info| %>
+      <tr>
+        <td></td>
+        <td><%= info.user %></td>
+        <td><%= link_to info.title,info_path(info.id) %></td>
+        <td><%= info.user %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,42 @@
+<header>
+  <nav class="navbar navbar-expand-lg nav-light bg-light">
+    <div class="container">
+      <!--管理側でのheader-->
+      <h2>Information_sharing</h2>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="row">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %> <!--管理者側がログイン中か確認する-->
+                  <li><%= link_to "情報一覧", admin_infos_path, class: 'nav-link text-dark' %></li><!--情報一覧へのリンク-->
+                  <li><%= link_to "ユーザー一覧", admin_users_path, class: 'nav-link text-dark' %></li><!--ユーザー一覧へのリンク-->
+                  <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧へのリンク-->
+                  <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+              <% end %>
+              <!--顧客側ログイン中のheader-->
+              <% if user_signed_in? %> <!--顧客側がログイン中か確認する-->
+
+                  <li><%= link_to "情報一覧", infos_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                  <li><%= link_to "ユーザー一覧", users_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
+                  <li><%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+              <!--顧客側のheader-->
+              <% else %><!--非ログイン時に表示するheader-->
+                <% unless admin_signed_in? %>
+                  <li><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %></li><!--新規登録へのリンク-->
+                  <li><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面へのリンク-->
+                  <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link text-dark' %></li>
+                <% end %>
+              <% end %>
+            </ul>
+        </div>
+          <% unless admin_signed_in? %>
+          <%#= render "layouts/search", { search: @search } %>
+          <% end %>
+        </div>
+
+
+    </div>
+  </nav>
+</header>

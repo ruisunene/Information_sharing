@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row-md">
+    <h2>ジャンル編集</h2>
+  </div>
+  <div class="row-md ">
+    <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
+      <div class="form-group row d-flex align-items-center">
+        <%= f.label :ジャンル名, class: 'col-md-3 offset-1 text-center lead' %>
+        <%= f.text_field :name, class: 'col-md-4' %>
+        <%= f.submit :編集, class: 'btn btn-outline-success col-md-2 offset-1' %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

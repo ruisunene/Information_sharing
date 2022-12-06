@@ -1,0 +1,26 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>新規情報投稿</h2>
+      <%= render 'form', info: Info.new %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+  		<h2>詳細情報</h2>
+  		<table class='table'>
+  		  <tr>
+          <td><%= link_to(@info.user) do %>
+            <%= @info.user.name %>
+            <% end %>
+          </td>
+          <td><%= link_to @info.title, @info %></td>
+          <td><%= @info.body %></td>
+
+ <!--         <%# if @info.user == current_user %>
+            <td><%#= link_to 'Edit', edit_info_path(@info), class: "btn btn-sm btn-success edit_info_#{@info.id}" %></td>
+            <td><%#= link_to 'Destroy', @info, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_info_#{@info.id}"%></td>
+          <%# end %>-->
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
