@@ -1,6 +1,6 @@
 class Public::InfosController < ApplicationController
   before_action :authenticate_user!
-  #before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def create
     @info = Info.new(info_params)
@@ -40,22 +40,22 @@ class Public::InfosController < ApplicationController
 
   def destroy
     @info = Info.find(params[:id])
-    info.destroy
+    @info.destroy
     redirect_to "/infos"
   end
 
   private
 
     def info_params
-      params.require(:info).permit(:title, :body)
+      params.require(:info).permit(:title, :body, :genre_id)
     end
-=begin
+
     def ensure_correct_user
       @info = Info.find(params[:id])
       unless @info.user == current_user
         redirect_to infos_path
       end
     end
-=end
+
 end
 

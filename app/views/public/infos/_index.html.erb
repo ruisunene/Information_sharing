@@ -11,10 +11,12 @@
   <tbody>
     <% infos.each do |info| %>
       <tr>
-        <td></td>
-        <td><%= info.user %></td>
+        <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
+        <td><%= link_to(info.user) do %>
+              <%= info.user.name %>
+            <% end %></td>
         <td><%= link_to info.title,info_path(info.id) %></td>
-        <td><%= info.user %></td>
+        <td><%= info.genre.name %></td>
         <td></td>
       </tr>
     <% end %>
