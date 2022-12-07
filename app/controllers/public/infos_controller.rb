@@ -14,14 +14,25 @@ class Public::InfosController < ApplicationController
   end
 
   def index
-    @infos =Info.all
     @info = Info.new
+    @genres = Genre.all
+    if params[:genre_id]
+      @genre = Genre.find(params[:genre_id])
+      @infos = @genre.infos.page(params[:page])
+    elsif @search_infos
+      @infos = @search_infos.page(params[:page])
+      #@items_count = @search_infos.all.count
+    else
+      @info = Info.find(params[:page])
+      #@items_count = Item.all.count
+    end
   end
 
   def show
     @info = Info.find(params[:id])
     @info_new = Info.new
     @info_comment = InfoComment.new
+    @genres = Genre.all
   end
 
   def edit

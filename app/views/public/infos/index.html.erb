@@ -1,6 +1,9 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-3'>
+      <h2>ジャンル一覧</h2>
+      <%= render "admin/genres/genre_search", genres: @genres %>
+      <h2 class="mt-3">New book</h2>
       <h2>新規情報投稿</h2>
       <%= render 'form', info: Info.new %>
     </div>
