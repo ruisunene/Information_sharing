@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :users, only:[:index, :show, :edit, :update]
     resources :infos, only:[:index, :show, :edit,:create, :destroy, :update] do
       resource :bookmarks, only: [:create, :destroy]
-      resources :info_comments, only: [:create, :destroy]
+      resources :info_comments, only: [:create, :destroy, :edit,:update]
     end
   end
 

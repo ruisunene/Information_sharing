@@ -1,11 +1,17 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
+
   def index
+    @info = Info.new
     @users = User.all
   end
 
   def show
+    @user = User.find(params[:id])
+    @infos = @user.infos
+    @info = Info.new
+    @bookmarks = Bookmark.where(user_id: current_user.id)
   end
 
   def edit

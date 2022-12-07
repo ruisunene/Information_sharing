@@ -16,8 +16,17 @@
           </td>
           <td><%= link_to @info.title, @info %></td>
           <td><%= @info.genre.name %></td>
-          <td>ブックマーク</td>
-          <td>コメント数</td>
+
+          <% if @info.bookmarked_by?(current_user) %>
+          <td><%= link_to "ブックマークを外す", info_bookmarks_path(@info), method: :delete %></td>
+          <% else %>
+          <td><%= link_to "ブックマーク", info_bookmarks_path(@info), method: :post %></td>
+          <% end %>
+
+          <td class="info-comments-counter">
+            <%#= render "info_comments/counter", info: @info %>
+            コメント数: <%= @info.info_comments.count %>
+          </td>
 
         <% if @info.user == current_user %>
             <td><%= link_to 'Edit', edit_info_path(@info), class: "btn btn-sm btn-success edit_info_#{@info.id}" %></td>
@@ -31,10 +40,11 @@
            <td><%= @info.body %></td>
         </tr>
       </table>
-      <div class="book-comments-index">
-        
+      <div class="info-comments-index">
+        <%= render "public/info_comments/index", info: @info %>
+
       </div>
-      
+        <%= render "public/info_comments/form", info: @info, info_comment: @info_comment %>
     </div>
   </div>
 </div>

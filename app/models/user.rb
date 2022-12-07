@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :infos #情報の投稿
-  #has_many :info_comments, dependent: :destroy　#コメント機能
+  has_many :info_comments, dependent: :destroy #コメント機能
   has_many :bookmarks, dependent: :destroy #ブックマーク機能
 
 

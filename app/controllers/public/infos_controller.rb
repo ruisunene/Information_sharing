@@ -21,7 +21,7 @@ class Public::InfosController < ApplicationController
   def show
     @info = Info.find(params[:id])
     @info_new = Info.new
-
+    @info_comment = InfoComment.new
   end
 
   def edit

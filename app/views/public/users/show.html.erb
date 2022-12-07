@@ -1,2 +1,31 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2 class="mt-3">新規情報投稿</h2>
+      <%= render 'public/infos/form', info: @info%>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>共有情報</h2>
+      <%= render 'public/infos/index',infos: @infos %>
+      <%#= render 'public/bookmarks',users: @users, book: @book%>
+      <table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookmarks.each do |bookmark| %>
+      <tr>
+        <td>
+          <%= link_to info_path(bookmark.info) do %>
+            <%= bookmark.info.title %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
