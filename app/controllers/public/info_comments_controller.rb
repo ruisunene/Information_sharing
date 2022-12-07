@@ -21,11 +21,10 @@ class Public::InfoCommentsController < ApplicationController
   end
 
   def update
-    putu
     @info = Info.find_by(params[:id])
     @comment = InfoComment.find(params[:id])
     if @comment.update(info_comment_params)
-      redirect_to info_path(@info.id)#@commit.idを追加してみたが変わらない
+      redirect_to info_path(params[:info_id])#@commit.idを追加してみたが変わらない
     else
       render :edit
     end

@@ -1,7 +1,6 @@
 class Admin::InfoCommentsController < ApplicationController
 
   
-
   def destroy
     @comment = InfoComment.find(params[:id])
     @comment.destroy
