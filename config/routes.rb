@@ -27,9 +27,9 @@ Rails.application.routes.draw do
     resources :infos, only:[:index, :show, :edit,:create, :destroy, :update] do
       resource :bookmarks, only: [:create, :destroy]
       resources :info_comments, only: [:create, :destroy, :edit,:update]
+
     end
   end
-
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

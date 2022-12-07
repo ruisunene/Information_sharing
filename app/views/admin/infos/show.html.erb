@@ -1,2 +1,38 @@
-<h1>Admin::Infos#show</h1>
-<p>Find me in app/views/admin/infos/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+
+    <div class='col-md-8 offset-md-1'>
+  		<h2>詳細情報</h2>
+
+  		<table class='table'>
+  		  <tr>
+  		    <td><u><%= @info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
+          <td><%= link_to(@info.user) do %>
+            <%= @info.user.name %>
+            <% end %>
+          </td>
+          <td><%= link_to @info.title, @info %></td>
+          <td><%= @info.genre.name %></td>
+
+          <td class="info-comments-counter">
+            <%#= render "info_comments/counter", info: @info %>
+            コメント数: <%= @info.info_comments.count %>
+          </td>
+            <td><%= link_to 'Edit', edit_admin_info_path(@info), class: "btn btn-sm btn-success edit_info_#{@info.id}" %></td>
+            <td><%= link_to 'Destroy', @info, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_info_#{@info.id}"%></td>
+        </tr>
+        </table>
+        <h4>内容</h4>
+        <table class='table'>
+        <tr>
+          <td><%= @info.body %></td>
+        </tr>
+      </table>
+      <div class="info-comments-index">
+        <%= render "public/info_comments/index", info: @info %>
+
+      </div>
+        <%= render "public/info_comments/form", info: @info, info_comment: @info_comment %>
+    </div>
+  </div>
+</div>

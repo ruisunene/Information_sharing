@@ -1,10 +1,12 @@
 class Admin::UsersController < ApplicationController
-  
+
   def index
     @users = User.all
   end
 
   def show
+    @user = User.find(params[:id])
+    @infos = @user.infos
   end
 
   def edit
@@ -14,7 +16,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "You have updated user successfully."
+      redirect_to admin_user_path(@user.id)#, notice: "You have updated user successfully."
     else
       render "edit"
     end

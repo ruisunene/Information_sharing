@@ -19,12 +19,13 @@ class Public::InfosController < ApplicationController
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
       @infos = @genre.infos.page(params[:page])
+      #@infos = Info.all
     elsif @search_infos
       @infos = @search_infos.page(params[:page])
-      #@items_count = @search_infos.all.count
     else
-      @info = Info.find(params[:page])
-      #@items_count = Item.all.count
+      @info = Info.find_by(params[:page])
+      @infos = Info.all
+      #@info = Info.find(params[:id])
     end
   end
 

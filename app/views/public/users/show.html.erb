@@ -8,6 +8,7 @@
       <h2>共有情報</h2>
       <%= render 'public/infos/index',infos: @infos %>
       <%#= render 'public/bookmarks',users: @users, book: @book%>
+      <% if @user == current_user %>
       <table>
   <thead>
     <tr>
@@ -26,6 +27,7 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
     </div>
   </div>
 </div>

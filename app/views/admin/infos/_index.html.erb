@@ -14,7 +14,7 @@
         <td><%= link_to(info.user) do %>
               <%= info.user.name %>
             <% end %></td>
-        <td><%= link_to info.title,info_path(info.id) %></td>
+        <td><%= link_to info.title,admin_info_path(info.id) %></td>
         <td><%= info.genre.name %></td>
       </tr>
     <% end %>

@@ -1,0 +1,19 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>氏名</th>
+      <th>役職</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.job %></td>
+        <td><%= link_to '投稿一覧', admin_user_path(user) %></td>
+        <td><%= link_to '編集', edit_admin_user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

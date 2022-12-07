@@ -1,2 +1,9 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+      <h2><%#= @user.name %>共有情報</h2>
+      <%= render 'admin/infos/index',infos: @infos %>
+    </div>
+  </div>
+</div>
+
