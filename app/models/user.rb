@@ -32,5 +32,9 @@ class User < ApplicationRecord
     end
   end
 
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
 
 end
