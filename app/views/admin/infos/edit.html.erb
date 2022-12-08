@@ -2,7 +2,7 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   		<h1>情報編集</h1>
-  		<%= form_with model: @info, url: admin_info_path(@info.id), local :true, method: :patch do |f| %>
+  		<%= form_with model: @info, url: admin_info_path(@info.id) do |f| %>
   <div class="form-group">
     <%= f.label :タイトル %>
     <%= f.text_field :title, class: 'col-md-4' %>

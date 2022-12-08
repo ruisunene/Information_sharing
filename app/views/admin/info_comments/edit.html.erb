@@ -1,11 +1,6 @@
-<!--元の記述-->
+
 <%= form_with model: [@info, @comment],url: admin_info_info_comment_path(@info.id, @comment.id)  do |f| %>
-<!--試した記述-->
-<%#= form_with url: admin_info_path(@info.id),model: @info, @commen, local :true, method: :patch do |f| %>
-<%#= form_with model: @info, @commen, url: admin_info_path(@info.id), local :true, method: :patch do |f| %>
-<%#= form_with model: @info, @commen do |f| %>
-<%#= form_with model: [@info, @comment], url: admin_info_path(@info.id), local :true, method: :patch do |f| %>
-<%#= form_with model: [@info, @comment], url: admin_info_path(@comment.id, @info.id), local :true, method: :patch do |f| %>
+
 
   <div class="field">
     <%= f.label :comment, "コメント編集" %></br>
