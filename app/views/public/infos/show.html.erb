@@ -37,11 +37,14 @@
            <td><%= @info.body %></td>
         </tr>
       </table>
+      <div class="memo-index">
+        <%= render "public/memos/index", info: @info %>
+        <%= render "public/memos/form", info: @info, memo: @memo %>
+      </div>
       <div class="info-comments-index">
         <%= render "public/info_comments/index", info: @info %>
-
-      </div>
         <%= render "public/info_comments/form", info: @info, info_comment: @info_comment %>
+      </div>
     </div>
   </div>
 </div>

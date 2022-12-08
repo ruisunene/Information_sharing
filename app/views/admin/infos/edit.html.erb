@@ -2,8 +2,24 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
   		<h1>情報編集</h1>
+  		<%= form_with model: @info, url: admin_info_path(@info.id), local :true, method: :patch do |f| %>
+  <div class="form-group">
+    <%= f.label :タイトル %>
+    <%= f.text_field :title, class: 'col-md-4' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :内容 %>
+    <%= f.text_area :body, class: 'col-md-4' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ジャンル, class: 'col-md-4' %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択してください" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit :編集する, class: 'btn btn-success' %>
+  </div>
+<% end %>
 
-  		<%= render 'public/infos/form', info: @info %>
   	</div>
   </div>
 </div>

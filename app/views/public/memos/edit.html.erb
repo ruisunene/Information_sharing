@@ -1,0 +1,12 @@
+<%= form_with model: [@info, @memo] do |f|%>
+
+  <div class="field">
+    <%= f.label :memo, "メモ編集" %></br>
+    <%= f.text_field :memo %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit "送信"%>
+  </div>
+
+<% end %>

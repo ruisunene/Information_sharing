@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :infos #情報の投稿
   has_many :info_comments, dependent: :destroy #コメント機能
   has_many :bookmarks, dependent: :destroy #ブックマーク機能
-
+  has_many :memos, dependent: :destroy #コメント機能
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
 
@@ -17,6 +17,18 @@ class User < ApplicationRecord
       user.name = "ゲスト"
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
+    end
+  end
+
+  def self.search_for(content, method)
+    if method == 'perfect'
+      User.where(name: content)
+    elsif method == 'forward'
+      User.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      User.where('name LIKE ?', '%' + content)
+    else
+      User.where('name LIKE ?', '%' + content + '%')
     end
   end
 

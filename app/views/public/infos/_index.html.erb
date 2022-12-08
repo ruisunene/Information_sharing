@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% infos.each do |info| %>
+    <% infos.reverse_each do |info| %>
       <tr>
         <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
         <td><%= link_to(info.user) do %>

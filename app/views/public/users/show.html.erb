@@ -1,13 +1,7 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-      <h2 class="mt-3">新規情報投稿</h2>
-      <%= render 'public/infos/form', info: @info%>
-    </div>
-    <div class='col-md-8 offset-md-1'>
-      <h2>共有情報</h2>
-      <%= render 'public/infos/index',infos: @infos %>
-      <%#= render 'public/bookmarks',users: @users, book: @book%>
+      <h2 class="mt-3">ブックマーク一覧</h2>
       <% if @user == current_user %>
       <table>
   <thead>
@@ -16,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @bookmarks.each do |bookmark| %>
+    <% @bookmarks.reverse_each do |bookmark| %>
       <tr>
         <td>
           <%= link_to info_path(bookmark.info) do %>
@@ -28,6 +22,31 @@
   </tbody>
 </table>
 <% end %>
+      <h2 class="mt-3">新規情報投稿</h2>
+      <%= render 'public/infos/form', info: @info%>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2><%= @user.name %>さんの共有情報</h2>
+      <div><%= link_to '編集', edit_user_path(@user) %></div>
+      <table class='table'>
+  <thead>
+    <tr>
+      <th>投稿日時</th>
+      <th>情報名</th>
+      <th>ジャンル名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @infos.reverse_each do |info| %>
+      <tr>
+        <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
+        <td><%= link_to info.title,info_path(info.id) %></td>
+        <td><%= info.genre.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
     </div>
   </div>
 </div>

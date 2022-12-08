@@ -1,18 +1,16 @@
 class Admin::InfosController < ApplicationController
-
+  
   def index
     @info = Info.new
     @genres = Genre.all
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
       @infos = @genre.infos.page(params[:page])
-      #@infos = Info.all
     elsif @search_infos
       @infos = @search_infos.page(params[:page])
     else
       @info = Info.find_by(params[:page])
       @infos = Info.all
-      #@info = Info.find(params[:id])
     end
   end
 
@@ -40,7 +38,7 @@ class Admin::InfosController < ApplicationController
   def destroy
     @info = Info.find(params[:id])
     @info.destroy
-    redirect_to admin_user_path(@user)
+    redirect_to admin_infos_path
   end
 
   def info_params

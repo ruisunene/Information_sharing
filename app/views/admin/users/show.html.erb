@@ -1,8 +1,25 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
-      <h2><%#= @user.name %>共有情報</h2>
-      <%= render 'admin/infos/index',infos: @infos %>
+      <h2><%= @user.name %>さんの共有情報</h2>
+      <table class='table'>
+  <thead>
+    <tr>
+      <th>投稿日時</th>
+      <th>情報名</th>
+      <th>ジャンル名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @infos.reverse_each do |info| %>
+      <tr>
+        <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
+        <td><%= link_to info.title,admin_info_path(info.id) %></td>
+        <td><%= info.genre.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
     </div>
   </div>
 </div>

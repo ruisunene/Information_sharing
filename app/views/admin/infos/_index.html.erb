@@ -8,12 +8,13 @@
     </tr>
   </thead>
   <tbody>
-    <% infos.each do |info| %>
+    <% infos.reverse_each do |info| %>
       <tr>
         <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
-        <td><%= link_to(info.user) do %>
+        <td><%= link_to admin_user_path(info.user) do %>
               <%= info.user.name %>
             <% end %></td>
+        <!--<td><%#= link_to "詳細へ", admin_user_path(@user) %></td>-->
         <td><%= link_to info.title,admin_info_path(info.id) %></td>
         <td><%= info.genre.name %></td>
       </tr>

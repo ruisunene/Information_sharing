@@ -11,8 +11,6 @@ class Public::InfoCommentsController < ApplicationController
   def destroy
     @comment = InfoComment.find(params[:id])
     @comment.destroy
-    #BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
-    #redirect_to request.referer
   end
 
   def edit

@@ -17,7 +17,8 @@
               <% end %>
               <!--顧客側ログイン中のheader-->
               <% if user_signed_in? %> <!--顧客側がログイン中か確認する-->
-
+                  <li><%= render 'searches/form' %></li>
+                  <il><%= link_to "マイページ", user_path(current_user) ,class: 'nav-link text-dark'  %></il>
                   <li><%= link_to "情報一覧", infos_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
                   <li><%= link_to "ユーザー一覧", users_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
                   <li><%= link_to "ログアウト", destroy_user_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->

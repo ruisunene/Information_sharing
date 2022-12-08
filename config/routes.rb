@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :users, only:[:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :infos, only: [:index, :show, :edit, :update, :destroy] do
-    resources :info_comments, only: [:create, :destroy]
+    resources :info_comments, only: [:create, :destroy, :edit, :update]
     end
   end
 
@@ -27,9 +27,13 @@ Rails.application.routes.draw do
     resources :infos, only:[:index, :show, :edit,:create, :destroy, :update] do
       resource :bookmarks, only: [:create, :destroy]
       resources :info_comments, only: [:create, :destroy, :edit,:update]
+      resources :memos, only: [:create, :destroy, :edit, :update]
+      #get '/search', to: 'searches#search'ここだとエラー
     end
   end
+
   get '/search', to: 'searches#search'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
