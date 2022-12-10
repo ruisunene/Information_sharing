@@ -1,14 +1,14 @@
 <%= form_with model: info, local:true do |f| %>
   <div class="form-group">
     <%= f.label :タイトル %>
-    <%= f.text_field :title, class: 'col-md-4' %>
+    <%= f.text_field :title, class: 'form-control info_title' %>
   </div>
   <div class="form-group">
     <%= f.label :内容 %>
-    <%= f.text_area :body, class: 'col-md-4' %>
+    <%= f.text_area :body, class: 'form-control info_body' %>
   </div>
   <div class="form-group">
-    <%= f.label :ジャンル, class: 'col-md-4' %>
+    <%= f.label :ジャンル, class: 'col-md-6' %>
     <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択してください" %>
   </div>
   <div class="form-group">

@@ -1,14 +1,14 @@
-<div class='container'>
+<div class='container px-5 px-sm-0'>
   <div class='row'>
+    <%#= render 'layouts/errors', obj: @book %>
     <div class='col-md-3'>
-      <h2>キーワード検索</h2>
-      <h2>ジャンル一覧</h2>
+      <h4 class="pt-4">ジャンル検索一覧</h4>
       <%= render "admin/genres/genre_search", genres: @genres %>
-      <h2>新規情報投稿</h2>
-      <%= render 'form', info: Info.new %>
+      <h4 class="pt-4">新規情報投稿</h4>
+      <%= render 'form', info: @info_new %>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2>共有情報一覧</h2>
+      <h3 class="pt-4">共有情報一覧</h3>
       <%= render 'index', infos: @infos%>
     </div>
   </div>

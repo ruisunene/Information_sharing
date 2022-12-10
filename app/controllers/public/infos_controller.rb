@@ -14,16 +14,17 @@ class Public::InfosController < ApplicationController
   end
 
   def index
-    @info = Info.new
+    @info_new = Info.new
     @genres = Genre.all
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
-      @infos = @genre.infos.page(params[:page])
+      @infos = @genre.infos.page(params[:page]).per(15)
     elsif @search_infos
       @infos = @search_infos.page(params[:page])
     else
+      #情報一覧を抽出
       @info = Info.find_by(params[:page])
-      @infos = Info.all
+      @infos = Info.page(params[:page]).per(15)
     end
   end
 
