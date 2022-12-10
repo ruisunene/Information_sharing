@@ -7,6 +7,7 @@ class Admin::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @infos = @user.infos
+    @genres = Genre.all
   end
 
   def edit

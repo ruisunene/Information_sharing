@@ -16,6 +16,7 @@ class Public::InfosController < ApplicationController
   def index
     @info_new = Info.new
     @genres = Genre.all
+    #ジャンルの検索結果を抽出
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
       @infos = @genre.infos.page(params[:page]).per(15)

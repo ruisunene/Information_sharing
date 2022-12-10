@@ -1,39 +1,29 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-      <h2 class="mt-3">ブックマーク一覧</h2>
+      <!--ジャンル検索-->
+      <%= render "admin/genres/genre_search", genres: @genres %>
+      <!--ブックマーク-->
+      <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
+        <div>
       <% if @user == current_user %>
-      <table>
-  <thead>
-    <tr>
-      <th>タイトル</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookmarks.reverse_each do |bookmark| %>
-      <tr>
-        <td>
-          <%= link_to info_path(bookmark.info) do %>
-            <%= bookmark.info.title %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-      <h2 class="mt-3">新規情報投稿</h2>
+        <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: "btn btn-secondary btn-block"%>
+        <% end %>
+        </div>
+      <h5 class=" pt-4 mt-3">新規情報投稿</h5>
       <%= render 'public/infos/form', info: @info%>
+
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2><%= @user.name %>さんの共有情報</h2>
-      <div><%= link_to '編集', edit_user_path(@user) %></div>
+
       <table class='table'>
   <thead>
     <tr>
       <th>投稿日時</th>
       <th>情報名</th>
       <th>ジャンル名</th>
+      <th>コメント数</th>
     </tr>
   </thead>
   <tbody>
@@ -42,6 +32,7 @@
         <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
         <td><%= link_to info.title,info_path(info.id) %></td>
         <td><%= info.genre.name %></td>
+        <td><%= render "public/info_comments/counter", info: info %></td>
       </tr>
     <% end %>
   </tbody>

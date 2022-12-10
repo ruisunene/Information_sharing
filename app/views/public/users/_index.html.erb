@@ -2,14 +2,17 @@
   <thead>
     <tr>
       <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>電話番号</th>
       <th>役職</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
   <tbody>
     <% users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone_number%></td>
         <td><%= user.job %></td>
         <td><%= link_to '投稿一覧', user %></td>
       </tr>

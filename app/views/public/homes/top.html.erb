@@ -1,5 +1,22 @@
-<div id="top" class="container">
-    <div class="row">
-        <%= render "admin/genres/genre_search", genres: @genres %>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <%#= render 'layouts/errors', obj: @info %>
+    <div class='col-md-3'>
+      <!--ジャンル検索-->
+      <div class="genre_search pt-4">
+      <%= render "admin/genres/genre_search", genres: @genres %>
+      </div>
+      <h4 class="info_form pt-4">新規情報投稿</h4>
+      <%= render 'public/infos/form', info: @info_new %>
     </div>
+    <div class='col-md-8 offset-md-1'>
+      <h3 class="infos_index pt-4">新着情報</h3>
+      <%= render 'public/infos/index', infos: @infos%>
+    </div>
+  </div>
 </div>
+
+
+
+
+

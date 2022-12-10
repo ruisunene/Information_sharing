@@ -6,6 +6,9 @@ class Info < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :memos, dependent: :destroy
 
+  validates :title,presence:true
+  validates :body,presence:true,length:{maximum:200}
+
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?
   end

@@ -2,7 +2,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ジャンル検索</th>
+                <th>ジャンル検索一覧</th>
             </tr>
         </thead>
         <tbody>
@@ -11,8 +11,8 @@
                 <td>
                     <%= link_to infos_path(genre_id: genre.id) , class: 'nav-link text-dark' do %>
                     <%= genre.name %>
-                    <% end %>
                 </td>
+                <% end %>
             </tr>
             <% end %>
         </tbody>

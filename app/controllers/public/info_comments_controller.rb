@@ -5,7 +5,6 @@ class Public::InfoCommentsController < ApplicationController
     @comment = current_user.info_comments.new(info_comment_params)
     @comment.info_id = @info.id
     @comment.save
-   # redirect_to request.referer
   end
 
   def destroy

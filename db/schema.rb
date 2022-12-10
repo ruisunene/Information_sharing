@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2022_12_08_104615) do
   end
 
   create_table "info_comments", force: :cascade do |t|
-    t.text "comment"
+    t.text "comment", null: false
     t.integer "user_id"
     t.integer "info_id"
     t.datetime "created_at", precision: 6, null: false
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2022_12_08_104615) do
   end
 
   create_table "infos", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+    t.string "title", null: false
+    t.text "body", null: false
     t.integer "user_id"
     t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2022_12_08_104615) do
   end
 
   create_table "memos", force: :cascade do |t|
-    t.text "memo"
+    t.text "memo", null: false
     t.integer "user_id"
     t.integer "info_id"
     t.datetime "created_at", precision: 6, null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2022_12_08_104615) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name"
+    t.string "name", null: false
     t.string "phone_number"
     t.string "job"
     t.string "reset_password_token"

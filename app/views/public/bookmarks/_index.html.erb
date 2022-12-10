@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+      <% if @user == current_user %>
+        <thead>
+          <tr>
+            <th>ブックマーク一覧</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% bookmarks.reverse_each do |bookmark| %>
+          <tr>
+            <td>
+              <%= link_to info_path(bookmark.info) do %>
+                <%= bookmark.info.title %>
+              <% end %>
+            </td>
+
+          </tr>
+        <% end %>
+        </tbody>
+      <% end %>
+      </table>

@@ -4,6 +4,7 @@ class Public::UsersController < ApplicationController
 
   def index
     @info = Info.new
+    @genres = Genre.all
     @users = User.page(params[:page]).per(15)
   end
 
@@ -12,6 +13,8 @@ class Public::UsersController < ApplicationController
     @infos = @user.infos.page(params[:page]).per(15)
     @info = Info.new
     @bookmarks = Bookmark.where(user_id: current_user.id)
+    @genres = Genre.all
+
   end
 
   def edit
