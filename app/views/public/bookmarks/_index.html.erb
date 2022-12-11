@@ -2,20 +2,30 @@
       <% if @user == current_user %>
         <thead>
           <tr>
-            <th>ブックマーク一覧</th>
+            <th>投稿日時</th>
+            <th>投稿者</th>
+            <th>情報名</th>
+            <th>ジャンル名</th>
+            <th>コメント数</th>
           </tr>
         </thead>
         <tbody>
         <% bookmarks.reverse_each do |bookmark| %>
           <tr>
+            <td><u><%= bookmark.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
+            <td><%= link_to(bookmark.user) do %>
+              <%= bookmark.user.name %>
+            <% end %></td>
             <td>
               <%= link_to info_path(bookmark.info) do %>
                 <%= bookmark.info.title %>
               <% end %>
             </td>
-
+            <td><%= bookmark.info.genre.name %></td>
+            <td><%= bookmark.info.info_comments.count %>件</td>
           </tr>
         <% end %>
         </tbody>
       <% end %>
       </table>
+      <%= paginate bookmarks %>

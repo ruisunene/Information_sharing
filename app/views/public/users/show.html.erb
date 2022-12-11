@@ -7,19 +7,18 @@
       </div>
       <!--ブックマーク-->
       <div class="bookmarks pt-4">
-      <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
+      <%#= render "public/bookmarks/index", bookmarks: @bookmarks %>
       </div>
-        <div>
-      <% if @user == current_user %>
-        <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: "btn btn-secondary btn-block"%>
-        <% end %>
-        </div>
       <h5 class=" pt-4">新規情報投稿</h5>
       <%= render 'public/infos/form', info: @info%>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2 class="infos_show pt-4"><%= @user.name %>さんの共有情報</h2>
-
+      <h2 class=" pt-4"><%= @user.name %>さんの共有情報</h2>
+      <div class= " w-25 p-3">
+      <% if @user == current_user %>
+        <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: "btn btn-secondary btn-block" %>
+        <% end %>
+        </div>
       <table class='table table-bordered'>
   <thead>
     <tr>
@@ -41,6 +40,12 @@
   </tbody>
 </table>
 <%= paginate @infos %>
+
+<div class="bookmarks pt-4">
+  <h2>ブックマーク一覧</h2>
+      <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
+      </div>
+
     </div>
   </div>
 </div>

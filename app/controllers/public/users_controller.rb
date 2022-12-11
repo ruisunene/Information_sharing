@@ -10,9 +10,9 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @infos = @user.infos.page(params[:page]).per(15)
+    @infos = @user.infos.page(params[:page]).per(5)
     @info = Info.new
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(5)
     @genres = Genre.all
 
   end
