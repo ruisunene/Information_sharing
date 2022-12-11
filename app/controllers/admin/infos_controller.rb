@@ -1,16 +1,16 @@
 class Admin::InfosController < ApplicationController
-  
+
   def index
     @info = Info.new
     @genres = Genre.all
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
-      @infos = @genre.infos.page(params[:page])
+      @infos = @genre.infos.page(params[:page]).per(15)
     elsif @search_infos
       @infos = @search_infos.page(params[:page])
     else
       @info = Info.find_by(params[:page])
-      @infos = Info.all
+      @infos = Info.page(params[:page]).per(15)
     end
   end
 
@@ -28,8 +28,7 @@ class Admin::InfosController < ApplicationController
   def update
     @info = Info.find(params[:id])
     if @info.update(info_params)
-      flash[:notice] = "You have updated book successfully."
-      redirect_to admin_info_path(@info.id)
+      redirect_to admin_info_path(@info.id), notice: "更新できました"
     else
       render :edit
     end

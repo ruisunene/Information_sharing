@@ -2,22 +2,25 @@
   <div class='row'>
     <div class='col-md-3'>
       <!--ジャンル検索-->
+      <div class="genre_search pt-4">
       <%= render "admin/genres/genre_search", genres: @genres %>
+      </div>
       <!--ブックマーク-->
+      <div class="bookmarks pt-4">
       <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
+      </div>
         <div>
       <% if @user == current_user %>
         <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: "btn btn-secondary btn-block"%>
         <% end %>
         </div>
-      <h5 class=" pt-4 mt-3">新規情報投稿</h5>
+      <h5 class=" pt-4">新規情報投稿</h5>
       <%= render 'public/infos/form', info: @info%>
-
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2><%= @user.name %>さんの共有情報</h2>
+      <h2 class="infos_show pt-4"><%= @user.name %>さんの共有情報</h2>
 
-      <table class='table'>
+      <table class='table table-bordered'>
   <thead>
     <tr>
       <th>投稿日時</th>

@@ -1,14 +1,15 @@
-<div class='container'>
+<div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-      <h4 class="pt-4">ジャンル検索一覧</h4>
+      <div class="genre_search pt-4">
       <%= render "admin/genres/genre_search", genres: @genres %>
-      <h4>新規情報投稿</h4>
-      <%= render 'form', info: @info_new  %>
+      </div>
+      <h4 class="info_form pt-4">新規情報投稿</h4>
+      <%= render 'form', info: @info_new %>
     </div>
     <div class='col-md-8 offset-md-1'>
-  		<h3>詳細情報</h3>
-  		<table class='table'>
+  		<h3 class="infos_show pt-4">詳細情報</h3>
+  		<table class='table table-bordered'>
   		  <thead>
     <tr>
       <th>共有日時</th>
@@ -27,14 +28,8 @@
           </td>
           <td><%= link_to @info.title, @info %></td>
           <td><%= @info.genre.name %></td>
-
-          <% if @info.bookmarked_by?(current_user) %>
-          <td><%= link_to "ブックマークを外す", info_bookmarks_path(@info), method: :delete %></td>
-          <% else %>
-          <td><%= link_to "ブックマーク", info_bookmarks_path(@info), method: :post %></td>
-          <% end %>
+          <%= render "public/bookmarks/check", bookmarks: @bookmarks %>
           <td><%= render "public/info_comments/counter", info: @info %></td>
-
         </tr>
         </table>
         <h4>内容</h4>

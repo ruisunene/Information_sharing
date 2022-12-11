@@ -8,7 +8,8 @@ class Public::InfosController < ApplicationController
     if @info.save
       redirect_to info_path(@info), notice: "投稿に成功しました"
     else
-      @infos = Info.all
+      @infos = Info.page(params[:page]).per(15)
+      @genres = Genre.all
       render 'index'
     end
   end
@@ -44,8 +45,7 @@ class Public::InfosController < ApplicationController
   def update
     @info = Info.find(params[:id])
     if @info.update(info_params)
-      flash[:notice] = "You have updated book successfully."
-      redirect_to info_path(@info.id)
+      redirect_to info_path(@info.id), notice: "更新できました"
     else
       render :edit
     end

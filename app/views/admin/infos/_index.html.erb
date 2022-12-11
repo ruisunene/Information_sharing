@@ -14,11 +14,10 @@
         <td><%= link_to admin_user_path(info.user) do %>
               <%= info.user.name %>
             <% end %></td>
-        <!--<td><%#= link_to "詳細へ", admin_user_path(@user) %></td>-->
         <td><%= link_to info.title,admin_info_path(info.id) %></td>
         <td><%= info.genre.name %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%#= paginate @infos %>
+<%= paginate infos %>

@@ -4,6 +4,7 @@
   </div>
   <div class="row-md ">
     <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
+    <%= render 'layouts/errors', obj: @genre %>
       <div class="form-group row d-flex align-items-center">
         <%= f.label :ジャンル名, class: 'col-md-3 offset-1 text-center lead' %>
         <%= f.text_field :name, class: 'col-md-4' %>
