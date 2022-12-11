@@ -8,20 +8,25 @@ class Public::InfosController < ApplicationController
     if @info.save
       redirect_to info_path(@info), notice: "投稿に成功しました"
     else
+      #@info_new = Info.find_by(params[:id])
+      #@info = Info.find_by(params[:page])
       @infos = Info.page(params[:page]).per(15)
       @genres = Genre.all
       render 'index'
+      #redirect_to request.referer
     end
   end
 
   def index
     @info_new = Info.new
     @genres = Genre.all
-    #ジャンルの検索結果を抽出
+    #ジャンルの検索結果を抽S出
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
+      @info = Info.find_by(params[:page])
       @infos = @genre.infos.page(params[:page]).per(15)
     elsif @search_infos
+      @info = Info.find_by(params[:page])
       @infos = @search_infos.page(params[:page])
     else
       #情報一覧を抽出

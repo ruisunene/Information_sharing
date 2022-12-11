@@ -8,6 +8,7 @@ class Info < ApplicationRecord
 
   validates :title,presence:true
   validates :body,presence:true,length:{maximum:200}
+  #validates :genre_id,presence:true
 
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?
