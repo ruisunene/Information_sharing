@@ -8,7 +8,8 @@ class Public::InfosController < ApplicationController
     if @info.save
       redirect_to info_path(@info), notice: "投稿に成功しました"
     else
-      #@info_new = Info.find_by(params[:id])
+      @info_new = Info.new #この記述がないとrender後の投稿機能が動作しない
+      #@info_new = Info.find_by(params[:page])
       #@info = Info.find_by(params[:page])
       @infos = Info.page(params[:page]).per(15)
       @genres = Genre.all
