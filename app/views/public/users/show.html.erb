@@ -13,12 +13,17 @@
       <%= render 'public/infos/form', info: @info%>
     </div>
     <div class='col-md-8 offset-md-1'>
-      <h2 class=" pt-4"><%= @user.name %>さんの共有情報</h2>
-      <div class= " w-25 p-3">
-      <% if @user == current_user %>
-        <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: "btn btn-secondary btn-block" %>
+       <table class='table table-borderless'>
+         <tr>
+        <td><h2 class=" pt-4"><%= @user.name %>さんの共有情報</h2></td>
+      <td class= " w-25 p-3">
+        <% if @user == current_user %>
+          <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: 'btn btn-success mt-4' %>
         <% end %>
-        </div>
+      </td>
+      </tr>
+      </table>
+
       <table class='table table-bordered'>
   <thead>
     <tr>

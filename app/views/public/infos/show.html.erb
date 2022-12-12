@@ -4,13 +4,13 @@
       <div class="genre_search pt-4">
       <%= render "admin/genres/genre_search", genres: @genres %>
       </div>
-      <h4 class="info_form pt-4">新規情報投稿</h4>
+      <h4 class="pt-4">新規情報投稿</h4>
       <%= render 'form', info: @info_new %>
     </div>
     <div class='col-md-8 offset-md-1'>
-  		<h3 class="infos_show pt-4">詳細情報</h3>
+  		<h3 class=" pt-4">詳細情報</h3>
   		<table class='table table-bordered'>
-  		  <thead>
+  		  <thead class="text-white bg-dark">
     <tr>
       <th>共有日時</th>
       <th>投稿者</th>
@@ -33,26 +33,33 @@
         </tr>
         </table>
         <h4>内容</h4>
-        <table class='table'>
+        <table class="table">
         <tr>
-           <td><%= @info.body %></td>
+           <td class="border border-dark"><%= @info.body %></td>
            </tr>
            <tr>
            <% if @info.user == current_user %>
-            <td><%= link_to '投稿を編集', edit_info_path(@info), class: "btn btn-sm btn-success edit_info_#{@info.id}" %></td>
-            <td><%= link_to '投稿を削除', @info, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_info_#{@info.id}"%></td>
+            <td>
+              <%= link_to '投稿を編集', edit_info_path(@info), class: "btn btn-success" %>
+              <%= link_to '投稿を削除', @info, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+            </td>
           <% end %>
         </tr>
       </table>
-      <div class="memos-index">
+
+      <div class="memos-index mt-5">
         <%= render "public/memos/index", info: @info %>
       </div>
-      <div>
+      <div class="memos-form my-3">
         <%= render "public/memos/form", info: @info, memo: @memo %>
       </div>
-      <div class="info-comments-index">
+
+      <div class="info-comments-index mt-5">
         <%= render "public/info_comments/index", info: @info %>
+      </div>
+      <div class="info-comments-form my-3">
         <%= render "public/info_comments/form", info: @info, info_comment: @info_comment %>
+      </div>
       </div>
     </div>
   </div>
