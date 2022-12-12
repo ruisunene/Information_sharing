@@ -3,8 +3,8 @@
       <% info.memos.each do |memo| %>
       <tr>
         <% if memo.user == current_user %>
-        <td><%= memo.memo %></td>
-        <td>
+        <td class="p-2"><%= memo.memo %></td>
+        <td class="p-2">
           <%= link_to "編集", edit_info_memo_path(info, memo), class: "btn btn-success pull-right"%>
           <%= link_to "削除する", info_memo_path(info, memo), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
         </td>

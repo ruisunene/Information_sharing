@@ -5,10 +5,6 @@
       <div class="genre_search pt-4">
       <%= render "admin/genres/genre_search", genres: @genres %>
       </div>
-      <!--ブックマーク-->
-      <div class="bookmarks pt-4">
-      <%#= render "public/bookmarks/index", bookmarks: @bookmarks %>
-      </div>
       <h5 class=" pt-4">新規情報投稿</h5>
       <%= render 'public/infos/form', info: @info%>
     </div>
@@ -24,8 +20,8 @@
       </tr>
       </table>
 
-      <table class='table table-bordered'>
-  <thead>
+      <table class='table table-bordered border border-dark'>
+  <thead class="text-white bg-dark">
     <tr>
       <th>投稿日時</th>
       <th>情報名</th>

@@ -7,8 +7,8 @@
             <%= info_comment.user.name %>
           <% end %>
         </td>
-        <td class=""><%= info_comment.comment %></td>
-        <td>
+        <td class="p-2"><%= info_comment.comment %></td>
+        <td class="p-2">
           <% if info_comment.user == current_user %>
             <%= link_to "編集", edit_info_info_comment_path(info, info_comment), class: "btn btn-success pull-right"%>
             <%= link_to "削除する", info_info_comment_path(info, info_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
