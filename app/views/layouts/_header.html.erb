@@ -1,7 +1,7 @@
-<header>
+<header class="sticky-top">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <h2><%= link_to "Information_sharing",root_path %></h2>
+      <h2 class="text-light">Information_sharing<%#= link_to "Information_sharing",root_path %></h2>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -26,6 +26,7 @@
                   <li><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %></li><!--新規登録へのリンク-->
                   <li><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %></li><!--ログイン画面へのリンク-->
                   <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link text-light' %></li>
+                  <li><%= link_to "管理者ログイン", admin_root_path, class: 'nav-link text-light' %></li>
                 <% end %>
               <% end %>
             </ul>
