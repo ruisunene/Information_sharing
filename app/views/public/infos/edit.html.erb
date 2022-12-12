@@ -1,11 +1,14 @@
 <div class='container px-5 px-sm-0' >
   <div class='row' >
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto" >
-  		<h1>情報編集</h1>
-      <%= render 'layouts/errors', obj: @info %>
-  		<%= render 'form', info: @info %>
-  		<%= link_to 'Show', @info %> |
-  		<%= link_to 'Back', info_path, class: "back" %>
+  		<h2 class="mt-4">情報編集</h2>
+  		<div class="mt-4">
+  		  <%= render 'layouts/errors', obj: @info %>
+  		</div>
+  		<div>
+  		  <%= render 'form', info: @info %>
+  		  <%= link_to 'マイページへ', @info, class: 'btn btn-primary col-sm-4'%>
+  		</div>
   	</div>
   </div>
 </div>

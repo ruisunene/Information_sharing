@@ -6,19 +6,19 @@
       <%= render 'layouts/errors', obj: @user %>
       <div class="form-group">
         <%= f.label :"氏名" %>
-        <%= f.text_field :name, class: "form-control name" %>
+        <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :"メールアドレス" %>
-        <%= f.email_field :email, class: "form-control email" %>
+        <%= f.email_field :email, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :"電話番号" %>
-        <%= f.text_field :phone_number, class: "form-control phone_number" %>
+        <%= f.text_field :phone_number, class: "form-control" %>
       </div>
      <div class="form-group">
         <%= f.label :"役職" %>
-        <%= f.text_field :job, class: "form-control job" %>
+        <%= f.text_field :job, class: "form-control" %>
       </div>
       <div class="form-group">
         <%=f.label :"会員ステータス"%>
@@ -26,7 +26,10 @@
         <%= f.radio_button :is_deleted, 1 %>退会
       </div>
       <div class="form-group">
-        <%= f.submit :"編集する", class: 'btn btn-secondary' %>
+        <%= f.submit :"編集する", class: 'btn btn-success col-sm-4' %>
+      </div>
+      <div class="form-group">
+        <%#= link_to '', @info, class: 'btn btn-primary col-sm-4'%>
       </div>
     <% end %>
     </div>
