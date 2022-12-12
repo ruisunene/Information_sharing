@@ -1,5 +1,6 @@
+<% if @user == current_user %>
+  <h2>ブックマーク一覧</h2>
 <table class="table table-bordered">
-      <% if @user == current_user %>
         <thead>
           <tr>
             <th>投稿日時</th>
@@ -9,6 +10,7 @@
             <th>コメント数</th>
           </tr>
         </thead>
+
         <tbody>
         <% bookmarks.reverse_each do |bookmark| %>
           <tr>
@@ -28,4 +30,4 @@
         </tbody>
       <% end %>
       </table>
-      <%= paginate bookmarks %>
+<%= paginate bookmarks %>
