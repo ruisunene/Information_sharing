@@ -23,7 +23,7 @@ class Public::InfoCommentsController < ApplicationController
     if @comment.update(info_comment_params)
       redirect_to info_path(params[:info_id])
     else
-      render :edit
+      render :'edit'
     end
   end
 

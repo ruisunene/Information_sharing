@@ -16,6 +16,7 @@ class Public::MemosController < ApplicationController
   def edit
     @info = Info.find(params[:info_id])
     @memo = Memo.find(params[:id])
+
   end
 
   def update
@@ -24,6 +25,8 @@ class Public::MemosController < ApplicationController
     if @memo.update(memo_params)
       redirect_to info_path(params[:info_id])#indo_idでidを取得しないと元の詳細ページに戻らない
     else
+      @info = Info.find(params[:info_id])
+      #@memo = Memo.find(params[:id])
       render :edit
     end
   end
