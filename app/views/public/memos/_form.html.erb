@@ -1,3 +1,4 @@
+<!--メモの投稿フォーム-->
 <%= form_with(model:[info, memo], local: false) do |f| %>
   <%= f.text_area :memo, rows:'3',placeholder: "メモ・やるべきことを記入", class: "w-100" %>
   <%= f.submit "保存する", class: "btn btn-success mt-2 " %>

@@ -1,16 +1,17 @@
+<!--投稿の一覧ページ-->
 <div class='container px-5 px-sm-0' >
-    <%= render 'layouts/errors', obj: @info %>
   <div class='row'>
     <div class='col-md-3'>
-       <div class="genre_search pt-4">
-      <%= render "admin/genres/genre_search", genres: @genres %>
+      <%= render 'layouts/errors', obj: @info %>
+      <div class="genre_search pt-4">
+        <%= render "admin/genres/genre_search", genres: @genres %><!--ジャンル一覧-->
       </div>
       <h4 class="info_form pt-4">新規情報投稿</h4>
-      <%= render 'form', info: @info_new %>
+      <%= render 'form', info: @info_new %><!--新規投稿フォーム-->
     </div>
     <div class='col-md-8 offset-md-1'>
       <h3 class="infos_index pt-4">共有情報一覧</h3>
-      <%= render 'index', infos: @infos%>
+      <%= render 'index', infos: @infos%><!--投稿の一覧-->
     </div>
   </div>
 </div>

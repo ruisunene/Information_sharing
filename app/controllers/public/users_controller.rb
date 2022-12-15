@@ -1,7 +1,8 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
+  #ログインユーザーの情報のみ編集可能
   before_action :ensure_correct_user, only: [:edit, :update]
-
+#ユーザー機能
   def index
     @info = Info.new
     @genres = Genre.all
@@ -10,10 +11,9 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #@user = User.find_by(params[:id])
-    @infos = @user.infos.page(params[:page]).per(5)
+    @infos = @user.infos.page(params[:page]).per(5)#自分の投稿を表示。5件でページが変わる
     @info = Info.new
-    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(5)
+    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(5)#自分がブックマークをした投稿を表示。5件でページが
     @genres = Genre.all
   end
 

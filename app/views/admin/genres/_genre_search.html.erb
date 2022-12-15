@@ -1,20 +1,22 @@
+<!--ユーザー用のジャンル一覧-->
 <div class="table-responsive mt-3">
-    <table class="table table-bordered border border-dark">
-        <thead class="text-white bg-dark">
-            <tr>
-                <th>ジャンル検索一覧</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% genres.each do |genre| %>
-            <tr>
-                <td>
-                    <%= link_to infos_path(genre_id: genre.id) , class: 'nav-link text-dark' do %>
-                    <%= genre.name %>
-                </td>
-                <% end %>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
+  <table class="table table-bordered border border-dark">
+    <thead class="text-white bg-dark">
+      <tr>
+        <th>ジャンル検索一覧</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% genres.each do |genre| %>
+      <tr>
+        <td>
+          <%= link_to infos_path(genre_id: genre.id) , class: 'nav-link text-dark' do %>
+            <%= genre.name %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>

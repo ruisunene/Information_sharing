@@ -1,13 +1,21 @@
-<%= form_with model: [@info, @memo] do |f|%>
-<!--, url: info_memo_path(@info.id, @memo.id)-->
+<!--メモの編集ページ-->
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>メモの編集</h2>
+      <%= form_with model: [@info, @memo] do |f|%>
+      <%= render 'layouts/errors', obj: @memo %>
 
-  <div class="field">
-    <%= f.label :memo, "メモ編集" %></br>
-    <%= f.text_field :memo %>
+        <div class="form-group">
+          <%= f.text_area :memo, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "送信", class: 'btn btn-success col-sm-4'%>
+        </div>
+        <div class="form-group">
+          <%= link_to '元のページへ', info_path(@info), class: 'btn btn-primary col-sm-4'%>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="submit">
-    <%= f.submit "送信"%>
-  </div>
-
-<% end %>
+</div>

@@ -1,5 +1,6 @@
+<!--ブックマークの選択-->
 <% if @info.bookmarked_by?(current_user) %>
-          <td><%= link_to "ブックマークを外す", info_bookmarks_path(@info), method: :delete %></td>
-          <% else %>
-          <td><%= link_to "ブックマーク", info_bookmarks_path(@info), method: :post %></td>
-          <% end %>
+  <td><%= link_to "ブックマークを外す", info_bookmarks_path(@info), method: :delete %></td>
+<% else %>
+  <td><%= link_to "ブックマーク", info_bookmarks_path(@info), method: :post %></td>
+<% end %>

@@ -1,3 +1,4 @@
+<!--管理者用、投稿の詳細-->
 <div class='container'>
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
@@ -15,18 +16,19 @@
         <tbody>
     		  <tr>
     		    <td><u><%= @info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
-            <td><%= link_to admin_user_path(@info.user) do %>
+            <td>
+              <%= link_to admin_user_path(@info.user) do %>
               <%= @info.user.name %>
               <% end %>
             </td>
             <td><%= @info.title %></td>
             <td><%= @info.genre.name %></td>
-
             <td class="info-comments-counter">
               コメント数: <%= @info.info_comments.count %>
             </td>
           </tr>
         </tbody>
+
       </table>
         <h4>内容</h4>
         <table class='table'>
@@ -40,7 +42,7 @@
         </tr>
       </table>
       <div class="info-comments-index">
-        <%= render "admin/info_comments/index", info: @info %>
+        <%= render "admin/info_comments/index", info: @info %><!--コメント一覧-->
       </div>
     </div>
   </div>

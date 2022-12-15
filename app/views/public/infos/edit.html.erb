@@ -1,3 +1,4 @@
+<!--投稿の編集ページ-->
 <div class='container px-5 px-sm-0' >
   <div class='row' >
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto" >
@@ -6,7 +7,7 @@
   		  <%= render 'layouts/errors', obj: @info %>
   		</div>
   		<div>
-  		  <%= render 'form', info: @info %>
+  		  <%= render 'form', info: @info %><!--編集フォーム-->
   		  <%= link_to 'マイページへ', @info, class: 'btn btn-primary col-sm-4'%>
   		</div>
   	</div>

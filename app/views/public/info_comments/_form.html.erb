@@ -1,3 +1,4 @@
+<!--コメントの投稿フォーム部分テンプレート-->
 <%= form_with(model:[info, info_comment], local: false) do |f| %>
   <%= f.text_area :comment, rows:'3',placeholder: "コメントをここに", class: "w-100" %></br>
   <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>

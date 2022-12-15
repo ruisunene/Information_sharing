@@ -1,27 +1,28 @@
 class Public::InfosController < ApplicationController
   before_action :authenticate_user!
+  #ログインユーザーのみ投稿の編集と削除ができる
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
+#投稿機能
   def create
     @info = Info.new(info_params)
     @info.user_id = current_user.id
     if @info.save
       redirect_to info_path(@info), notice: "投稿に成功しました"
     else
+      #遷移後投稿一覧で必要な記述
       @info_new = Info.new #この記述がないとrender後の投稿機能が動作しない
-      #@info_new = Info.find_by(params[:page])
-      #@info = Info.find_by(params[:page])
-      @infos = Info.page(params[:page]).per(15)
-      @genres = Genre.all
+      @infos = Info.page(params[:page]).per(15)#投稿が15件でページが変わる
+      @genres = Genre.all#ジャンル一覧を表示
       render 'index'
-      #redirect_to request.referer
+
     end
   end
 
   def index
     @info_new = Info.new
     @genres = Genre.all
-    #ジャンルの検索結果を抽S出
+    #ジャンルの検索結果を抽出
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
       @info = Info.find_by(params[:page])

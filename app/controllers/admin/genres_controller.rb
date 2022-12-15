@@ -1,6 +1,6 @@
 class Admin::GenresController < ApplicationController
   before_action :authenticate_admin!
-
+#ジャンル検索・一覧機能
   def index
     @genre = Genre.new
     @genres = Genre.all

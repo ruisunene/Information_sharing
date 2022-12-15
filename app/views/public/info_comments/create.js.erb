@@ -1,3 +1,4 @@
+<!--コメントの投稿非同期-->
 $('.comment-textarea').val("")
 $('.info-comments-counter').html("<%= j(render 'public/info_comments/counter', info: @comment.info) %>")
 $('.info-comments-index').html("<%= j(render 'public/info_comments/index', info: @comment.info) %>")

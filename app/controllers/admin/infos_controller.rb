@@ -1,5 +1,5 @@
 class Admin::InfosController < ApplicationController
-
+#投稿の管理
   def index
     @info = Info.new
     @genres = Genre.all
@@ -7,9 +7,9 @@ class Admin::InfosController < ApplicationController
       @genre = Genre.find(params[:genre_id])
       @infos = @genre.infos.page(params[:page]).per(15)
     elsif @search_infos
-      @infos = @search_infos.page(params[:page])
+      @infos = @search_infos.page(params[:page]).per(15)
     else
-      @info = Info.find_by(params[:page])
+      @info = Info.find_by(params[:id])#find_byで複数の投稿を取得
       @infos = Info.page(params[:page]).per(15)
     end
   end

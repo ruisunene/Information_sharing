@@ -1,25 +1,26 @@
+<!--管理者用、ユーザー情報の詳細-->
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
-      <h2><%= @user.name %>さんの共有情報</h2>
+    <h2><%= @user.name %>さんの共有情報</h2>
       <table class='table table-bordered border border-dark'>
-  <thead class="text-white bg-dark">
-    <tr>
-      <th>投稿日時</th>
-      <th>情報名</th>
-      <th>ジャンル名</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @infos.reverse_each do |info| %>
-      <tr>
-        <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
-        <td><%= link_to info.title,admin_info_path(info.id) %></td>
-        <td><%= info.genre.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <thead class="text-white bg-dark">
+          <tr>
+            <th>投稿日時</th>
+            <th>情報名</th>
+            <th>ジャンル名</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @infos.reverse_each do |info| %>
+          <tr>
+            <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
+            <td><%= link_to info.title,admin_info_path(info.id) %></td>
+            <td><%= info.genre.name %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

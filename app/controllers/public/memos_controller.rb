@@ -1,4 +1,5 @@
 class Public::MemosController < ApplicationController
+#メモ機能
 
   def create
     @info = Info.find(params[:info_id])

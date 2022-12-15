@@ -1,14 +1,17 @@
+<!--ユーザー用、トップページ-->
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <%#= render 'layouts/errors', obj: @info %>
+    <%= render 'layouts/errors', obj: @info %>
     <div class='col-md-3'>
       <!--ジャンル検索-->
       <div class="genre_search pt-4">
       <%= render "admin/genres/genre_search", genres: @genres %>
       </div>
+      <!--新規投稿フォーム-->
       <h4 class="info_form pt-4">新規情報投稿</h4>
       <%= render 'public/infos/form', info: @info_new %>
     </div>
+    <!--新着投稿(今日の投稿のみ)-->
     <div class='col-md-8 offset-md-1'>
       <h3 class="infos_index pt-4">本日の新着情報</h3>
       <%= render 'public/infos/index', infos: @infos%>

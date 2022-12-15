@@ -1,3 +1,4 @@
+<!--管理者用、ユーザー一覧-->
 <table class='table table-bordered border border-dark'>
   <thead class="text-white bg-dark">
     <tr>
@@ -10,6 +11,7 @@
       <th>会員情報編集</th>
     </tr>
   </thead>
+
   <tbody>
     <% users.each do |user| %>
       <tr>
@@ -17,7 +19,7 @@
         <td><%= user.email %></td>
         <td><%= user.phone_number%></td>
         <td><%= user.job %></td>
-
+        <!--ユーザーの登録ステータス表示-->
         <% if user.is_deleted %>
         <td class="text-Secondary"><b>退会済み</b></td>
         <% else %>

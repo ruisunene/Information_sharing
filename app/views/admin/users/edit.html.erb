@@ -1,3 +1,4 @@
+<!--管理者用、ユーザー情報の編集-->
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
@@ -8,10 +9,10 @@
         <%= f.label :"氏名" %>
         <%= f.text_field :name, class: "form-control" %>
       </div>
-      <div class="form-group">
-        <%= f.label :"メールアドレス" %>
-        <%= f.email_field :email, class: "form-control" %>
-      </div>
+      <!--<div class="form-group">
+        <%#= f.label :"メールアドレス" %>
+        <%#= f.email_field :email, class: "form-control" %>
+      </div>-->
       <div class="form-group">
         <%= f.label :"電話番号" %>
         <%= f.text_field :phone_number, class: "form-control" %>
@@ -29,7 +30,7 @@
         <%= f.submit :"編集する", class: 'btn btn-success col-sm-4' %>
       </div>
       <div class="form-group">
-        <%#= link_to '', @info, class: 'btn btn-primary col-sm-4'%>
+        <%= link_to '元のページへ', admin_users_path, class: 'btn btn-primary col-sm-4'%>
       </div>
     <% end %>
     </div>

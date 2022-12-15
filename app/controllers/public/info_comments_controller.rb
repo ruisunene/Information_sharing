@@ -1,5 +1,5 @@
 class Public::InfoCommentsController < ApplicationController
-
+#コメント機能
   def create
     @info = Info.find(params[:info_id])
     @comment = current_user.info_comments.new(info_comment_params)
@@ -21,7 +21,7 @@ class Public::InfoCommentsController < ApplicationController
     @info = Info.find_by(params[:id])
     @comment = InfoComment.find(params[:id])
     if @comment.update(info_comment_params)
-      redirect_to info_path(params[:info_id])#@commit.idを追加してみたが変わらない
+      redirect_to info_path(params[:info_id])
     else
       render :edit
     end
