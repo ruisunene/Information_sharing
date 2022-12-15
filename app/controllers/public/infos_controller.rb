@@ -29,7 +29,7 @@ class Public::InfosController < ApplicationController
       @infos = @genre.infos.page(params[:page]).per(15)
     elsif @search_infos
       @info = Info.find_by(params[:page])
-      @infos = @search_infos.page(params[:page])
+      @infos = @search_infos.page(params[:page]).per(15)
     else
       #情報一覧を抽出
       @info = Info.find_by(params[:page])
