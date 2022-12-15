@@ -2,12 +2,6 @@
 
 
 /*フッターの位置調整*/
-/*footer{
-    position: absolute; ←絶対位置
-    bottom: 0;
-    width: 100%;
-}*/
-
 header { height: 64px; }
 main {
   min-height: calc(100vh - 64px - 50px);
