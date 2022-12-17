@@ -3,7 +3,7 @@
   <thead class="text-white bg-dark">
     <tr>
       <th>氏名</th>
-      <th>メールアドレス</th>
+      <!--<th>メールアドレス</th>-->
       <th>電話番号</th>
       <th>役職</th>
       <th>ステータス</th>
@@ -16,7 +16,7 @@
     <% users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%= user.email %></td>
+        <!--<td><%#= user.email %></td>-->
         <td><%= user.phone_number%></td>
         <td><%= user.job %></td>
         <!--ユーザーの登録ステータス表示-->

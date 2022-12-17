@@ -1,4 +1,5 @@
 class Admin::InfosController < ApplicationController
+  before_action :authenticate_admin!
 #投稿の管理
   def index
     @info = Info.new

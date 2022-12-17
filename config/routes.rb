@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root to: "genres#index"
+    root to: "infos#index"
     resources :users, only:[:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :infos, only: [:index, :show, :edit, :update, :destroy] do

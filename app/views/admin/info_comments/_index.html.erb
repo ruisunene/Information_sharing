@@ -10,8 +10,8 @@
       </td>
       <td><%= info_comment.comment %></td>
       <td>
-        <%= link_to "編集", edit_admin_info_info_comment_path(info, info_comment), class: "btn btn-danger pull-right"%>
-        <%= link_to "削除する", admin_info_info_comment_path(info, info_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
+        <%= link_to "編集", edit_admin_info_info_comment_path(info, info_comment), class: "btn btn-success pull-right"%>
+        <%= link_to "削除", admin_info_info_comment_path(info, info_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
       </td>
     </tr>
   <% end %>

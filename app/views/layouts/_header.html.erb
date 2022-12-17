@@ -8,6 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <<% if admin_signed_in? %> <!--管理者側がログイン中か確認する-->
+                  <li><%= render 'searches/form' %></li>
                   <li><%= link_to "情報一覧", admin_infos_path, class: 'nav-link text-light' %></li><!--情報一覧へのリンク-->
                   <li><%= link_to "ユーザー一覧", admin_users_path, class: 'nav-link text-light' %></li><!--ユーザー一覧へのリンク-->
                   <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-light' %></li><!--ジャンル一覧へのリンク-->
@@ -36,3 +37,4 @@
     </div>
   </nav>
 </header>
+<%#= render 'searches/form' %>

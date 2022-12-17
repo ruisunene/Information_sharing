@@ -2,7 +2,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    <h2>ユーザ情報編集</h2>
+    <h2 class="mt-4"><%= @user.name %>さんの情報編集</h2>
     <%= form_with model: @user, url: admin_user_path(@user.id) do |f| %>
       <%= render 'layouts/errors', obj: @user %>
       <div class="form-group">
