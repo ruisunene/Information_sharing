@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
 #validates :content, presence: true
 	def search
+		#@user = User.find(params[:id])
 		@model = params[:model]
 		@content = params[:content]
 		@method = params[:method]

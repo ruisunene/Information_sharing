@@ -24,7 +24,10 @@ Rails.application.routes.draw do
   scope module: :public do #scope moduleでurlにpublicと付ける必要がなくなる
    root to: "homes#top"
     #root to: "users#show"
-    resources :users, only:[:index, :show, :edit, :update]
+    resources :users, only:[:index, :show, :edit, :update] do
+      get 'chat/:id', to: 'chats#show', as: 'chat'
+      resources :chats, only: [:create]
+    end
     resources :infos, only:[:index, :show, :edit,:create, :destroy, :update] do
       resource :bookmarks, only: [:create, :destroy]
       resources :info_comments, only: [:create, :destroy, :edit,:update]

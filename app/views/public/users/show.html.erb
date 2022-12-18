@@ -19,6 +19,11 @@
               <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: 'btn btn-success mt-4' %>
             <% end %>
           </td>
+          <td>
+            <% if current_user != @user %>
+            <%= link_to 'チャットを開始', user_chat_path(@user.id) %>
+            <% end %>
+          </td>
         </tr>
       </table>
 

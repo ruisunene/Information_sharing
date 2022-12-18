@@ -15,7 +15,6 @@ class Public::InfosController < ApplicationController
       @infos = Info.page(params[:page]).per(15)#投稿が15件でページが変わる
       @genres = Genre.all#ジャンル一覧を表示
       render 'index'
-
     end
   end
 

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :info_comments, dependent: :destroy #コメント機能
   has_many :bookmarks, dependent: :destroy #ブックマーク機能
   has_many :memos, dependent: :destroy #コメント機能
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
 
