@@ -2,4 +2,19 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
-      
+
+  activerecord:
+    attributes:
+      info:
+        title: タイトル
+        body: 内容
+        genre: ジャンル
+      user:
+        name: 名前
+        phone_number: 電話番号
+        job: 役職
+      memo:
+        memo: メモ
+      info_comment:
+        comment: コメント
+
