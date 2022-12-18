@@ -31,10 +31,10 @@
               <% end %>
             </table>
 
-            <%= form_with model: @chat,url: user_chats_path(@user.id), remote: true, method: :post  do |f| %>
+            <%= form_with model: @chat,url: user_chats_path(@user.id), local: false, method: :post  do |f| %>
               <%= f.text_field :message %>
               <%= f.hidden_field :room_id %>
-              <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
+              <%= f.submit "送信", class:"btn btn-sm btn-success chat-btn" %>
             <% end %>
         </div>
     </div>

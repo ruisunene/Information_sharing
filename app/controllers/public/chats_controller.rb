@@ -15,13 +15,17 @@ class Public::ChatsController < ApplicationController
     end
       @chats = @room.chats
       @chat = Chat.new(room_id: @room.id)
- end
+  end
 
   def create
     @chat = current_user.chats.new(chat_params)
-    if @chat.save
-      redirect_to request.referer
-    end
+    @chat.save
+    #byebug
+    #if @chat.save
+      #redirect_to request.referer
+    #else
+      #render 'show'
+    #end
   end
 
   private
