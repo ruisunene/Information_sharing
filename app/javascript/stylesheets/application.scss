@@ -37,13 +37,14 @@ footer { height: 50px; }
 .chat-partner{
     position: fixed;
     top: 64px;
-    width: 60%;
+    width: 50%;
 }
 
 .message-index{
     margin-top: 80px;
     margin-bottom: 80px;
     width: 100%;
+    /*下記 チャット画面・遷移後ページの一番下が表示されるようにするための記述*/
     height: calc(100vh - 145px - 115px);
     overflow-y: scroll;
 }
@@ -52,6 +53,6 @@ footer { height: 50px; }
     position: fixed;
     bottom: 50px;
     background-color: #fff;
-    width: 60%;
+    width: 50%;
     padding: 5px;
 }

@@ -13,26 +13,29 @@
       </div>
 
       <div class="message-index messageindex" id="scroll-inner" >
-      <table class="table table-borderless ml-3 pb-5">
-        <% @chats.each do |chat| %>
+      <table id="message-list" class="table table-borderless ml-3 pb-5">
+
         <tbody style="background-color:#eee;">
-          <% if chat.user_id == current_user.id %>
+          <% @chats.each do |chat| %>
+            <% if chat.user_id == current_user.id %>
             <tr>
-              <th>
-                <p class="message px-3" style="text-align: left; background-color:#00EE00; border-radius: 30px;"><%= safe_join(chat.message.split("\n"),tag(:br)) %></p>
-              </th>
-              <th></th>
+              <td>
+                <p class="px-3" style="display: inline-block; text-align: left; background-color:#00EE00; border-radius: 30px;">
+                  <%= safe_join(chat.message.split("\n"),tag(:br)) %>
+                </p>
+              </td>
+              <td></td>
             </tr>
-          <% else %>
+            <% else %>
             <tr>
-              <th></th>
-              <th>
-                <p class="text-white px-3" style="text-align: right; background-color:#000; border-radius: 100px;"><%= safe_join(chat.message.split("\n"),tag(:br)) %></p>
-              </th>
+              <td></td>
+              <td style="text-align: right;">
+                <p class="text-white px-3" style="display: inline-block; text-align: right; background-color:#000; border-radius: 100px;"><%= safe_join(chat.message.split("\n"),tag(:br)) %></p>
+              </td>
             </tr>
-          </tbody>
+            <% end %>
           <% end %>
-        <% end %>
+          </tbody>
       </table>
       </div>
 

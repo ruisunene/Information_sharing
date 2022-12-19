@@ -1,5 +1,6 @@
 $('#chat_message').val("")
-$('.message').append("<%= @chat.message %>");
+$('#message-list tbody').append('<tr><td><p class="px-3" style="display: inline-block; text-align: left; background-color:#00EE00; border-radius: 30px;"><%= @chat.message %></p></td><td></td></tr>');
+
 
 <!--元の記述-->
 <!--

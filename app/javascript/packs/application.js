@@ -17,6 +17,8 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+
+/*チャット画面・遷移後ページの一番下が表示されるようになる*/
 document.addEventListener("turbolinks:load", () => {
     function scrollToEnd() {
         const messageindex = document.getElementById('scroll-inner');
