@@ -33,3 +33,25 @@ footer { height: 50px; }
         }
     }
 }
+
+.chat-partner{
+    position: fixed;
+    top: 64px;
+    width: 60%;
+}
+
+.message-index{
+    margin-top: 80px;
+    margin-bottom: 80px;
+    width: 100%;
+    height: calc(100vh - 145px - 115px);
+    overflow-y: scroll;
+}
+
+.chat-form{
+    position: fixed;
+    bottom: 50px;
+    background-color: #fff;
+    width: 60%;
+    padding: 5px;
+}

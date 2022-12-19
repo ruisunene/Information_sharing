@@ -16,3 +16,11 @@ import "../stylesheets/application"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener("turbolinks:load", () => {
+    function scrollToEnd() {
+        const messageindex = document.getElementById('scroll-inner');
+        messageindex.scrollTop = messageindex.scrollHeight;
+    }
+    scrollToEnd()
+})
