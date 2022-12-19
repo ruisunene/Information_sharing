@@ -2,6 +2,12 @@ $('#chat_message').val("")
 $('#message-list tbody').append('<tr><td><p class="px-3" style="display: inline-block; text-align: left; background-color:#00EE00; border-radius: 30px;"><%= @chat.message %></p></td><td></td></tr>');
 
 
+
+ function scrollToEnd() {
+        const messageindex = document.getElementById('scroll-inner');
+        messageindex.scrollTop = messageindex.scrollHeight;
+    }
+    scrollToEnd()
 <!--元の記述-->
 <!--
 $('#chat_message').val("")

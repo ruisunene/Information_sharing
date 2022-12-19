@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 px-5 px-sm-0 mx-auto">
-      <div class="chat-partner">
+      <div class="chat-partner col-12">
       <table class="table table-borderless" style="background-color:#fff;">
         <tr>
-          <td><h2 class="m-3 "><%= @user.name %>さんとのチャット</h2></td>
+          <td><h3 class="m-3 "><%= @user.name %>さんとのチャット</h3></td>
           <td class= "w-30 py-3 px-5">
             <%= link_to 'ユーザー情報に戻る', user_path, class: 'btn btn-primary mt-2'%>
           </td>
@@ -12,9 +12,8 @@
       </table>
       </div>
 
-      <div class="message-index messageindex" id="scroll-inner" >
+      <div class="message-index messageindex col-12" id="scroll-inner" >
       <table id="message-list" class="table table-borderless ml-3 pb-5">
-
         <tbody style="background-color:#eee;">
           <% @chats.each do |chat| %>
             <% if chat.user_id == current_user.id %>
@@ -39,14 +38,14 @@
       </table>
       </div>
 
-      <div class="chat-form">
-      <div class=" border border-dark" style="border-radius: 10px;">
+
+      <div class="chat-form border border-dark col-12 ">
         <%= form_with model: @chat,url: user_chats_path(@user.id), local: false, method: :post  do |f| %>
-          <%= f.text_area :message, rows:'1', placeholder: "メッセージを入力してください",class: "w-75 mt-3 ml-3" %>
+          <%= f.text_area :message, rows:'1', placeholder: "メッセージを入力してください" ,class: 'w-75 mt-4 ml-4' %>
           <%= f.hidden_field :room_id %>
-          <%= f.submit "送信", class:"btn btn-success ml-3" %>
+          <%= f.submit "送信", class:"btn btn-success btn-lg  ml-3" %>
         <% end %>
-        </div>
+
       </div>
     </div>
   </div>
