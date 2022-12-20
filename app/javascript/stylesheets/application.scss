@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-/*フッターの位置調整*/
+/*フッターの位置調整 ヘッダーとフッターの高さを指定し、mainは両方の高さを引いた高さに*/
 header { height: 64px; }
 main {
   min-height: calc(100vh - 64px - 50px);
@@ -36,7 +36,7 @@ footer { height: 50px; }
 
 
 .message-index{
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     /*下記 チャット画面・遷移後ページの一番下が表示されるようにするための記述*/
     height: calc(100vh - 160px - 120px);
     overflow-y: scroll;

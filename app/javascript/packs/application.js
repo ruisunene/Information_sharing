@@ -27,5 +27,13 @@ document.addEventListener("turbolinks:load", () => {
     scrollToEnd()
 })
 
-
-
+/*document.addEventListener 画面を読み込む前にJavaScriptが走るのを防ぐ為、先にイベント(htnml)を読み込んでいる*/
+/*turbolinks:load 初回読み込み、リロード、ページ切り替えで作用する*/
+/*function scrollToEnd 関数を定義*/
+/*const messageindex 定数の宣言*/
+/*document.getElementById HTMLタグで指定したIDのドキュメントを取得するメソッド */
+/*document.getElementById('scroll-inner')
+htmlのdviタグで指定したID(scroll-inner)取得・divタグ内の要素を取得*/
+/*messageindex.scrollTop = messageindex.scrollHeight
+message-indexのスクロールの一番上と高さを指定*/
+/*scrollToEnd 定義した関数を実行する*/

@@ -2,19 +2,10 @@ $('#chat_message').val("")
 $('#message-list tbody').append('<tr><td><p class="px-3" style="display: inline-block; text-align: left; background-color:#00EE00; border-radius: 30px;"><%= @chat.message %></p></td><td></td></tr>');
 
 
-
- function scrollToEnd() {
-        const messageindex = document.getElementById('scroll-inner');
-        messageindex.scrollTop = messageindex.scrollHeight;
+<!--メッセージ送信後、スクロールの最下部にに自動スクロール-->
+ function scrollToEnd() { <!--関数を定義-->
+        const messageindex = document.getElementById('scroll-inner'); <!--定数を宣言し、IDを取得-->
+        messageindex.scrollTop = messageindex.scrollHeight;　<!--スクロールの最上部と高さを取得-->
     }
-    scrollToEnd()
-<!--元の記述-->
-<!--
-$('#chat_message').val("")
-$('.message').append("<b><p style='text-align: left; background-color: #00EE00F; border-radius: 30px;'><%#= @chat.message %></p></b>");
--->
+    scrollToEnd()<!--関数を実行 スクロールの最下部へ移動-->
 
-<!--
-$('input[type=text]').val("")
-$('.message').append("<p style='text-align: left;'><%#= @chat.message %></p>");
--->

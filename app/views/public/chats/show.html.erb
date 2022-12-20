@@ -21,6 +21,7 @@
               <td>
                 <p class="px-3" style="display: inline-block; text-align: left; background-color:#00EE00; border-radius: 30px;">
                   <%= safe_join(chat.message.split("\n"),tag(:br)) %>
+                  <!--safe_join フォームのtext_areaに対応、改行なフォームに入力したままの文を表示させるため-->
                 </p>
               </td>
               <td></td>
@@ -29,7 +30,9 @@
             <tr>
               <td></td>
               <td style="text-align: right;">
-                <p class="text-white px-3" style="display: inline-block; text-align: right; background-color:#000; border-radius: 100px;"><%= safe_join(chat.message.split("\n"),tag(:br)) %></p>
+                <p class="text-white px-3" style="display: inline-block; text-align: right; background-color:#000; border-radius: 100px;">
+                  <%= safe_join(chat.message.split("\n"),tag(:br)) %>
+                </p>
               </td>
             </tr>
             <% end %>
@@ -45,7 +48,6 @@
           <%= f.hidden_field :room_id %>
           <%= f.submit "送信", class:"btn btn-success btn-lg  ml-3" %>
         <% end %>
-
       </div>
     </div>
   </div>
