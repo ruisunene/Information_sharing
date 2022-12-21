@@ -41,7 +41,9 @@
         <table class="table">
           <tbody>
             <tr>
-              <td class="border border-dark"><%= @info.body %></td>
+              <td class="border border-dark">
+                <%= safe_join(@info.body.split("\n"),tag(:br)) %>
+                </td>
             </tr>
             <% if @info.user == current_user %><!--ログインユーザーの投稿のみ編集・削除可能-->
             <tr>
