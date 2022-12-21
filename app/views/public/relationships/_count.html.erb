@@ -1,12 +1,16 @@
-<table>
-  <% if @user == current_user %>
-  <tr>
-    <th>フォロー</th>
-    <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
-  </tr>
-  <tr>
-    <th>フォロワー</th>
-    <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
-  </tr>
-  <% end %>
-</table>
+<div class="table-responsive mt-3">
+  <table class="table table-bordered">
+    <tbody>
+      <% if @user == current_user %>
+      <tr>
+        <th><%= link_to "フォローユーザー", user_followings_path(@user), class: 'text-success'%></th>
+        <th><%= user.followings.count %>名</th>
+      </tr>
+      <tr>
+        <th><%= link_to "フォロワーユーザー", user_followers_path(@user), class: 'text-primary' %></th>
+        <th><%= user.followers.count %>名</th>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

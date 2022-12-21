@@ -25,4 +25,5 @@ class Info < ApplicationRecord
       Info.where('title LIKE ?', '%'+content+'%')
     end
   end
+
 end

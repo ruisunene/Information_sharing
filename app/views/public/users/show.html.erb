@@ -14,10 +14,10 @@
     <div class='col-md-8 offset-md-1'>
       <table class='table table-borderless'>
         <tr>
-          <td><h3 class=" pt-4"><%= @user.name %>さんの共有情報</h3></td>
+          <td><h3 class=" mt-4"><%= @user.name %>さんの共有情報</h3></td>
           <td class= " w-30 p-3">
             <% if @user == current_user %><!--ログインユーザーの詳細ページのみ編集ボタンを表示-->
-              <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: 'btn btn-success mt-4' %>
+              <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: 'btn btn-success mt-3' %>
             <% end %>
           </td>
           <td>
