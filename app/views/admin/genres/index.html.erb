@@ -26,6 +26,7 @@
           <tr>
             <td><%= genre.name %></td>
             <td class= "w-25"><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success" %></td>
+            <td class= "w-25"><%= link_to '削除', admin_genre_path(genre), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%></td>
           </tr>
         <% end %>
       </tbody>
