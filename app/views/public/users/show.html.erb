@@ -6,16 +6,7 @@
       <div class="genre_search pt-4">
         <%= render "admin/genres/genre_search", genres: @genres %>
       </div>
-      <table>
-        <tr>
-          <th>follows</th>
-          <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
-        </tr>
-        <tr>
-          <th>followers</th>
-          <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
-        </tr>
-      </table>
+      <%= render 'public/relationships/count', user: @user%>
       <h5 class=" pt-4">新規情報投稿</h5>
       <%= render 'public/infos/form', info: @info%>
     </div>
