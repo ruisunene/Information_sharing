@@ -1,6 +1,6 @@
 <!--コメント一覧部分テンプレート-->
 <h5 class=" mt-4">コメント一覧</h5>
-<table>
+<table class="table table-bordere">
   <tbody>
   <% info.info_comments.each do |info_comment| %>
     <tr>
@@ -9,13 +9,15 @@
           <%= info_comment.user.name %>
         <% end %>
       </td>
-      <td class="p-2"><%= info_comment.comment %></td>
+      <td class="p-2 w-50"><%= info_comment.comment %></td>
+      <% if info_comment.user == current_user %>
       <td class="p-2">
-        <% if info_comment.user == current_user %>
-          <%= link_to "編集", edit_info_info_comment_path(info, info_comment), class: "btn btn-success pull-right"%>
-          <%= link_to "削除", info_info_comment_path(info, info_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
-        <% end %>
+        <%= link_to "編集", edit_info_info_comment_path(info, info_comment), class: "btn btn-success pull-right"%>
       </td>
+      <td class="p-2">
+        <%= link_to "削除", info_info_comment_path(info, info_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
+      </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
