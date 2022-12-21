@@ -17,8 +17,8 @@
       <tr>
         <td><u><%= bookmark.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
         <td>
-          <%= link_to(bookmark.user) do %>
-            <%= bookmark.user.name %>
+          <%= link_to user_path(bookmark.info.user) do %>
+            <%= bookmark.info.user.name %>
           <% end %>
         </td>
         <td>

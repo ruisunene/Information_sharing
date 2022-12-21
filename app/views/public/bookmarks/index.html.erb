@@ -1,0 +1,42 @@
+<!--ブックマーク一覧部分テンプレート-->
+
+<h2 class="my-4">ブックマーク一覧</h2>
+<% if @infos.exists? %>
+  <%= render "public/infos/index", infos: @infos %>
+<% else %>
+  <p>ブックマークはありません</p>
+<% end %>
+<!--  <table class="table table-bordered border border-dark">
+    <thead class="text-white bg-dark">
+      <tr>
+        <th>投稿日時</th>
+        <th>投稿者</th>
+        <th>情報名</th>
+        <th>ジャンル名</th>
+        <th>コメント数</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <%# @bookmarks.reverse_each do |bookmark| %>
+      <tr>
+        <td><u><%#= bookmark.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
+        <td>
+          <%#= link_to(bookmark.user) do %>
+            <%#= bookmark.user.name %>
+          <%# end %>
+        </td>
+        <td>
+          <%#= link_to info_path(bookmark.info) do %>
+            <%#= bookmark.info.title %>
+          <%# end %>
+        </td>
+        <td><%#= bookmark.info.genre.name %></td>
+        <td><%#= bookmark.info.info_comments.count %>件</td>
+      </tr>
+    <%# end %>
+    </tbody>
+  </table>
+<%#= paginate bookmarks %>
+<%# end %>
+-->
