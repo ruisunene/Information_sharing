@@ -24,7 +24,7 @@ class Public::InfosController < ApplicationController
     #ジャンルの検索結果を抽出
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
-      @info = Info.find_by(params[:page])
+      @info = Info.find_by(params[:id])
       @infos = @genre.infos.page(params[:page]).per(15)
     elsif @search_infos
       @info = Info.find_by(params[:page])
