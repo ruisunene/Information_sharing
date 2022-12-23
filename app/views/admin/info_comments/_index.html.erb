@@ -1,6 +1,6 @@
 <!--管理者用、コメント一覧部分テンプレート-->
 <h5 class=" mt-4">コメント一覧</h5>
-<table>
+<table class="table table-bordere">
   <tbody>
   <% info.info_comments.each do |info_comment| %>
     <tr>
@@ -9,9 +9,12 @@
           <%= info_comment.user.name %>
         <% end %>
       </td>
-      <td><%= info_comment.comment %></td>
-      <td>
+      <td class="p-2 w-50">
+        <%= safe_join(info_comment.comment.split("\n"),tag(:br)) %></td>
+      <td class="p-2">
         <%= link_to "編集", edit_admin_info_info_comment_path(info, info_comment), class: "btn btn-success pull-right"%>
+      </td>
+      <td class="p-2">
         <%= link_to "削除", admin_info_info_comment_path(info, info_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
       </td>
     </tr>
