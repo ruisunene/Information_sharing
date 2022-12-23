@@ -10,3 +10,29 @@ Admin.create!(
    email: 'admin@admin',
    password: 'ruisunene'
 )
+
+Genre.create!(
+   [
+      {name: 'サンプル'},
+      {name: 'テスト'},
+      {name: '見本'}
+   ]
+)
+
+users = User.create!(
+  [
+    {email: '1@1', name: 'サンプル太郎', password: 'password' },
+    {email: '2@2', name: 'テスト花子', password: 'password' },
+    {email: '3@3', name: '見本夏彦', password: 'password' }
+  ]
+)
+
+Info.create!(
+   [
+   {title: 'サンプル', body: 'この投稿はサンプルです', user_id: 1, genre_id: 1},
+   {title: 'テスト', body: 'この投稿はテストです', user_id: 2, genre_id: 2},
+   {title: '見本', body: 'この投稿は見本です', user_id: 2, genre_id: 3}
+   ]
+)
+
+
