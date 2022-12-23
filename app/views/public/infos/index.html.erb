@@ -6,7 +6,7 @@
       <!--ジャンル検索-->
         <%= render "admin/genres/genre_search", genres: @genres %>
         <!--投稿のエラーメッセージ-->
-        <%#= render 'layouts/errors', obj: @info %>
+        <%= render 'layouts/errors', obj: @info %>
         <!--投稿フォーム-->
         <%= render 'form', info: @info_new %><!--新規投稿フォーム-->
     </div>
