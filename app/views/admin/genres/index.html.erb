@@ -27,7 +27,7 @@
           <tr>
             <td width="70%"><%= genre.name %></td>
             <td width="15%">
-              <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-success mr-3" %>
+              <%= link_to "編集", edit_admin_genre_path(genre), class: "btn btn-success" %>
             </td>
             <td width="15%">
               <%= link_to '削除', admin_genre_path(genre), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
