@@ -1,28 +1,28 @@
 <!--ユーザーの詳細-->
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
+    <!--サイドバー-->
+    <div class='side-bar col-md-3 mt-5'>
       <!--ジャンル検索-->
-      <div class="genre_search pt-4">
-        <%= render "admin/genres/genre_search", genres: @genres %>
-      </div>
+      <%= render "admin/genres/genre_search", genres: @genres %>
+      <!--フォロー・フォロワーボタン-->
       <%= render 'public/relationships/count', user: @user%>
-      <h5 class=" pt-4">新規情報投稿</h5>
+      <!--投稿フォーム-->
       <%= render 'public/infos/form', info: @info_new%>
     </div>
-
-    <div class='col-md-8 offset-md-1'>
+    <!--投稿の一覧-->
+    <div class='col-md-8 offset-md-1 mt-4'>
       <table class='table table-borderless'>
         <tr>
-          <td><h3 class=" mt-4"><%= @user.name %>さんの共有情報</h3></td>
-          <td class= " w-30 p-3">
+          <td><h3><%= @user.name %>さんの共有情報</h3></td>
+          <td class= "w-30">
             <% if @user == current_user %><!--ログインユーザーの詳細ページのみ編集ボタンを表示-->
-              <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: 'btn btn-success mt-3' %>
+              <%= link_to 'ユーザー情報編集', edit_user_path(@user), class: 'btn btn-success px-3' %>
             <% end %>
           </td>
           <td>
             <% if current_user != @user %>
-              <%= link_to 'チャットを開始', user_chat_path(@user.id), class: 'btn btn-success mt-4' %>
+              <%= link_to 'チャットを開始', user_chat_path(@user.id), class: 'btn btn-success px-3' %>
             <% end %>
           </td>
           <td>
@@ -36,12 +36,13 @@
       <table class='table table-bordered border border-dark'>
         <thead class="text-white bg-dark">
           <tr>
-            <th>投稿日時</th>
-            <th>タイトル</th>
-            <th>ジャンル名</th>
-            <th>コメント数</th>
+            <th width="25%">投稿日時</th>
+            <th width="40%">タイトル</th>
+            <th width="20%">ジャンル</th>
+            <th width="15%">コメント</th>
           </tr>
         </thead>
+
         <tbody>
         <% @infos.reverse_each do |info| %>
           <tr>
@@ -55,7 +56,7 @@
       </table>
       <%= paginate @infos %>
 
-      <div class="bookmarks pt-4"><!--ブックマーク一覧を表示-->
+      <div class="bookmarks mt-5"><!--ブックマーク一覧を表示-->
         <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
       </div>
     </div>

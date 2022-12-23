@@ -1,18 +1,14 @@
 <!--管理者用、ユーザー情報の編集-->
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-    <h2 class="mt-4"><%= @user.name %>さんの情報編集</h2>
+    <div class="col-sm-12 col-md-8 col-lg-5 mt-4 px-5 px-sm-0 mx-auto">
+    <h3><%= @user.name %>さんの情報編集</h3>
     <%= form_with model: @user, url: admin_user_path(@user.id) do |f| %>
       <%= render 'layouts/errors', obj: @user %>
-      <div class="form-group">
+      <div class="form-group mt-3">
         <%= f.label :"name" %>
         <%= f.text_field :name, class: "form-control" %>
       </div>
-      <!--<div class="form-group">
-        <%#= f.label :"メールアドレス" %>
-        <%#= f.email_field :email, class: "form-control" %>
-      </div>-->
       <div class="form-group">
         <%= f.label :"phone_number" %>
         <%= f.text_field :phone_number, class: "form-control" %>
@@ -27,7 +23,7 @@
         <%= f.radio_button :is_deleted, 1 %>退会
       </div>
       <div class="form-group">
-        <%= f.submit :"編集する", class: 'btn btn-success col-sm-4' %>
+        <%= f.submit :"変更を保存", class: 'btn btn-success col-sm-4' %>
       </div>
       <div class="form-group">
         <%= link_to '元のページへ', admin_users_path, class: 'btn btn-primary col-sm-4'%>

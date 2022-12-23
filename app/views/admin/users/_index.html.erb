@@ -2,20 +2,18 @@
 <table class='table table-bordered border border-dark'>
   <thead class="text-white bg-dark">
     <tr>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>電話番号</th>
-      <th>役職</th>
-      <th>ステータス</th>
-      <th>過去の投稿</th>
-      <th>会員情報編集</th>
+      <th width="20%">氏名</th>
+      <th width="25%">メールアドレス</th>
+      <th width="22%">電話番号</th>
+      <th width="22%">役職</th>
+      <th width="11%">ステータス</th>
     </tr>
   </thead>
 
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= link_to  user.name, admin_user_path(user) %></td>
         <td><%= user.email %></td>
         <td><%= user.phone_number%></td>
         <td><%= user.job %></td>
@@ -25,9 +23,6 @@
         <% else %>
         <td class="text-success"><b>登録中</b></td>
         <% end %>
-
-        <td><%= link_to '投稿一覧', admin_user_path(user) %></td>
-        <td><%= link_to '編集ページへ', edit_admin_user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
