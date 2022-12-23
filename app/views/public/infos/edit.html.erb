@@ -1,33 +1,29 @@
 <!--投稿の編集ページ-->
 <div class='container px-5 px-sm-0' >
-  <div class='row' >
+  <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto" >
-  		<h2 class="mt-4">情報編集</h2>
-  		<div class="mt-4">
-  		  <%= render 'layouts/errors', obj: @info %>
-  		</div>
-  		<div>
-        <%= form_with model: @info, local:true do |f| %>
-          <div class="form-group">
-            <%= f.label :"タイトル" %>
-            <%= f.text_field :title, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :"内容" %>
-            <%= f.text_area :body, class: 'form-control pb-5' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :"ジャンル", class: 'col-md-6' %>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択してください"%>
-          </div>
-          <div class="form-group">
-            <%= f.submit :"変更を保存する", class: 'btn btn-success col-4 ' %>
-          </div>
-          <div class="form-group">
-    		    <%= link_to '元のページへ', @info, class: 'btn btn-primary col-4'%>
-    		  </div>
-    		<% end %>
-  		</div>
+  		<h2 class="my-4">情報編集</h2>
+  		<%= render 'layouts/errors', obj: @info %>
+      <%= form_with model: @info, local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body %>
+          <%= f.text_area :body, class: 'form-control pb-5' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :genre, class: 'col-md-6' %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択してください"%>
+        </div>
+        <div class="form-group">
+          <%= f.submit :"変更を保存", class: 'btn btn-success col-4 ' %>
+        </div>
+        <div class="form-group">
+  		    <%= link_to '詳細に戻る', @info, class: 'btn btn-primary col-4'%>
+  		  </div>
+  		<% end %>
   	</div>
   </div>
 </div>

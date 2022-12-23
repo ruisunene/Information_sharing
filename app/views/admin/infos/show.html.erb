@@ -1,16 +1,15 @@
 <!--管理者用、投稿の詳細-->
-<div class='container'>
+<div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-8 offset-md-1'>
-  		<h2 class=" pt-4">詳細情報</h2>
+    <div class='offset-md-1 col-md-10 offset-md-1 mt-5'>
+  		<h3><b><%= @info.title %></b></h3>
   		<table class='table table-bordered'>
   		  <thead class="text-white bg-dark">
           <tr>
-            <th>共有日時</th>
-            <th>投稿者</th>
-            <th>タイトル</th>
-            <th>ジャンル</th>
-            <th>コメント数</th>
+            <th width="30%">共有日時</th>
+            <th width="25%">投稿者</th>
+            <th width="25%">ジャンル</th>
+            <th width="20%">コメント数</th>
           </tr>
         </thead>
         <tbody>
@@ -21,28 +20,31 @@
               <%= @info.user.name %>
               <% end %>
             </td>
-            <td><%= @info.title %></td>
             <td><%= @info.genre.name %></td>
             <td class="info-comments-counter">
               コメント数: <%= @info.info_comments.count %>
             </td>
           </tr>
         </tbody>
-
       </table>
-        <h4>内容</h4>
+
+        <h4 class="mt-5">内容</h4>
         <table class='table'>
         <tr>
-          <td class="border border-dark"><%= @info.body %></td>
+          <td class="border border-dark">
+            <%= safe_join(@info.body.split("\n"),tag(:br)) %>
+          </td>
         </tr>
         <tr>
           <td>
-            <%= link_to '編集', edit_admin_info_path(@info), class: "btn btn-success" %>
-            <%= link_to '削除', admin_info_path(@info), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%></td>
+            <%= link_to '編集', edit_admin_info_path(@info), class: "btn btn-success mr-3" %>
+            <%= link_to '削除', admin_info_path(@info), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+          </td>
         </tr>
       </table>
-      <div class="info-comments-index">
-        <%= render "admin/info_comments/index", info: @info %><!--コメント一覧-->
+      <!--コメントの一覧表示-->
+      <div class="info-comments-index mt-5">
+        <%= render "admin/info_comments/index", info: @info %>
       </div>
     </div>
   </div>

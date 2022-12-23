@@ -1,11 +1,10 @@
 <!--管理者用、投稿の編集-->
-<div class='container'>
+<div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-  		<h2 class="mt-4">情報編集</h2>
-  		<div>
-  		<%= form_with model: @info, url: admin_info_path(@info.id) do |f| %>
+  		<h2 class="my-4">情報編集</h2>
   		<%= render 'layouts/errors', obj: @info %>
+  		<%= form_with model: @info, url: admin_info_path(@info.id) do |f| %>
         <div class="form-group">
           <%= f.label :title %>
           <%= f.text_field :title, class: 'form-control' %>

@@ -1,60 +1,59 @@
-<!--投稿のの詳細ページ-->
+<!--投稿の詳細ページ-->
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
-      <div class="genre_search pt-4">
-        <%= render "admin/genres/genre_search", genres: @genres %>
-      </div>
-      <h4 class="pt-4">新規情報投稿</h4>
+    <!--サイドバー-->
+    <div class='side-bar col-md-3 mt-5'>
+      <!--ジャンル検索-->
+      <%= render "admin/genres/genre_search", genres: @genres %>
+      <!--投稿フォーム-->
       <%= render 'form', info: @info_new %>
     </div>
-      <div class='col-md-8 offset-md-1'>
-    		<h3 class=" pt-4">詳細情報</h3>
-    		<table class='table table-bordered'>
-    		  <thead class="text-white bg-dark">
-            <tr>
-              <th>共有日時</th>
-              <th>投稿者</th>
-              <th>タイトル</th>
-              <th>ジャンル</th>
-              <th>ブックマーク</th>
-              <th>コメント数</th>
-            </tr>
-          </thead>
-          <tbody>
-          	<tr>
-      		    <td><u><%= @info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
-              <td><%= link_to(@info.user) do %>
-                <%= @info.user.name %>
-                <% end %>
-              </td>
-              <td><%= link_to @info.title, @info %></td>
-              <td><%= @info.genre.name %></td>
-              <%= render "public/bookmarks/check", bookmarks: @bookmarks %><!--ブックマークの切り替え-->
-              <td class="info-comments-counter"><%= render "public/info_comments/counter", info: @info %></td><!--コメント数の表示-->
-            </tr>
-          </tbody>
-        </table>
+    <!--投稿の詳細-->
+    <div class='col-md-8 offset-md-1 mt-4'>
+  		<h3><b><%=@info.title %></b></h3>
+  		<table class='table table-bordered'>
+  		  <thead class="text-white bg-dark">
+          <tr>
+            <th width="25%">共有日時</th>
+            <th width="20%">投稿者</th>
+            <th width="15%">ジャンル</th>
+            <th width="25%">ブックマーク</th>
+            <th width="15%">コメント</th>
+          </tr>
+        </thead>
+        <tbody>
+        	<tr>
+    		    <td><u><%= @info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
+            <td><%= link_to(@info.user) do %>
+              <%= @info.user.name %>
+              <% end %>
+            </td>
+            <td><%= @info.genre.name %></td>
+            <%= render "public/bookmarks/check", bookmarks: @bookmarks %><!--ブックマークの切り替え-->
+            <td class="info-comments-counter"><%= render "public/info_comments/counter", info: @info %></td><!--コメント数の表示-->
+          </tr>
+        </tbody>
+      </table>
 
-        <h4>内容</h4>
-        <table class="table">
-          <tbody>
-            <tr>
-              <td class="border border-dark">
-                <%= safe_join(@info.body.split("\n"),tag(:br)) %>
-                </td>
-            </tr>
-            <% if @info.user == current_user %><!--ログインユーザーの投稿のみ編集・削除可能-->
-            <tr>
-              <td>
-                <%= link_to '投稿を編集', edit_info_path(@info), class: "btn btn-success" %>
-                <%= link_to '投稿を削除', @info, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+      <h4 class="mt-5">内容</h4>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="border border-dark">
+              <%= safe_join(@info.body.split("\n"),tag(:br)) %>
               </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <!--メモの一覧表示-->
+          </tr>
+          <% if @info.user == current_user %><!--ログインユーザーの投稿のみ編集・削除可能-->
+          <tr>
+            <td>
+              <%= link_to '投稿を編集', edit_info_path(@info), class: "btn btn-success mr-3" %>
+              <%= link_to '投稿を削除', @info, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <!--メモの一覧表示-->
       <div class="memos-index mt-5">
         <%= render "public/memos/index", info: @info %>
       </div>

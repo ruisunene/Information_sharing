@@ -1,13 +1,14 @@
-<!--管理者用、投稿一覧-->
-<div class='container'>
+<!--管理者用、投稿一覧ページ-->
+<div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
-      <h2>ジャンル一覧</h2>
-      <%= render "admin/genres/admin_genre_search", genres: @genres %><!--ジャンル一覧-->
+    <div class='col-md-3 mt-5'>
+      <!--ジャンル一覧-->
+      <%= render "admin/genres/admin_genre_search", genres: @genres %>
     </div>
-    <div class='col-md-8 offset-md-1'>
-      <h2>共有情報一覧</h2>
-      <%= render 'index', infos: @infos%><!--投稿一覧-->
+    <!--投稿の一覧-->
+    <div class='col-md-8 offset-md-1 mt-4'>
+      <h3 class="mb-3">共有情報一覧</h2>
+      <%= render 'index', infos: @infos %><!--投稿一覧-->
     </div>
   </div>
 </div>
