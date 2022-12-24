@@ -3,6 +3,7 @@
   <div class='row'>
     <!--サイドバー-->
     <div class='side-bar col-md-3 mt-5'>
+        <%= render "public/users/login_user", user: @user %>
         <!--ジャンル検索-->
         <%= render "admin/genres/genre_search", genres: @genres %>
         <h5 class="mt-4 mb-3">新規情報投稿</h5>
