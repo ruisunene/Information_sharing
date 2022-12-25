@@ -10,8 +10,10 @@ class SearchesController < ApplicationController
 		end
 		if @model == 'user'
 			@records = User.search_for(@content, @method).page(params[:page]).per(15)
-		else
+		elsif @model == 'info'
 			@records = Info.search_for(@content, @method).page(params[:page]).per(15)
+		elsif @model == 'group'
+			@records = Group.search_for(@content, @method).page(params[:page]).per(15)
 		end
 	end
 end

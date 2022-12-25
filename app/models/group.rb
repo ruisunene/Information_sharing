@@ -4,4 +4,17 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
   validates :introduction, presence: true
+
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Group.where(name: content)
+    elsif method == 'forward'
+      Group.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      Group.where('name LIKE ?', '%' + content)
+    else
+      Group.where('name LIKE ?', '%' + content + '%')
+    end
+  end
+
 end

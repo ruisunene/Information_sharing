@@ -46,6 +46,7 @@ class User < ApplicationRecord
     end
   end
 
+  #退会機能
   def active_for_authentication?
     super && (is_deleted == false)
   end
