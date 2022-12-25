@@ -1,0 +1,19 @@
+<table class="table table-bordered border border-dark">
+  <thead class="text-white bg-dark">
+    <tr>
+      <th width="30%">グループ名</th>
+      <th width="50%">説明文</th>
+      <th width="20">人数</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% groups.each do |group| %>
+    <tr>
+      <td><%= link_to group.name, group_path(group) %></td>
+      <td><%= group.introduction %></td>
+      <td><%= group.users.count %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= paginate groups %>

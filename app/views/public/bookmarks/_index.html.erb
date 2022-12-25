@@ -1,5 +1,4 @@
 <!--ブックマーク一覧部分テンプレート-->
-<% if @user == current_user %>
 <h3 class="my-4">ブックマーク一覧</h3>
   <table class="table table-bordered border border-dark">
     <thead class="text-white bg-dark">
@@ -33,4 +32,3 @@
     </tbody>
   </table>
 <%= paginate bookmarks %>
-<% end %>

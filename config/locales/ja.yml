@@ -17,5 +17,7 @@ ja:
         memo: メモ
       info_comment:
         comment: コメント
-      
+      group:
+        name: グループ名
+        introduction: 説明文
 

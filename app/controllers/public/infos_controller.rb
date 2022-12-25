@@ -30,7 +30,7 @@ class Public::InfosController < ApplicationController
       @info = Info.find_by(params[:info_id])
       @infos = @search_infos.page(params[:page]).per(15)
     else
-      #情報一覧を抽出
+      #投稿を抽出
       @info = Info.find_by(params[:info_id])
       @infos = Info.page(params[:page]).per(15)
     end

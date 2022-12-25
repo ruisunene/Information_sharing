@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :infos, only: [:index, :show, :edit, :update, :destroy] do
     resources :info_comments, only: [:create, :destroy, :edit, :update]
     end
+    resources :groups do
+      delete "all_destroy" => 'groups#all_destroy'
+    end
   end
 
   scope module: :public do #scope moduleでurlにpublicと付ける必要がなくなる
@@ -27,7 +30,6 @@ Rails.application.routes.draw do
     resources :users, only:[:index, :show, :edit, :update] do
       get 'chat/:id', to: 'chats#show', as: 'chat'
       resources :chats, only: [:create]
-
       resource :relationships, only: [:create, :destroy]
   	  get 'followings' => 'relationships#followings', as: 'followings'
   	  get 'followers' => 'relationships#followers', as: 'followers'
@@ -37,6 +39,10 @@ Rails.application.routes.draw do
       resources :info_comments, only: [:create, :destroy, :edit,:update]
       resources :memos, only: [:create, :destroy, :edit, :update]
       #get '/search', to: 'searches#search'ここだとエラー
+    end
+    resources :groups do
+      get "join" => "groups#join"
+        delete "all_destroy" => 'groups#all_destroy'
     end
   end
 

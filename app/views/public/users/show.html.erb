@@ -3,7 +3,7 @@
   <div class='row'>
     <!--サイドバー-->
     <div class='side-bar col-md-3 mt-5'>
-      <%= render "public/users/login_user", user: @user %>
+      <%#= render "public/users/login_user", user: @user %>
       <!--ジャンル検索-->
       <%= render "admin/genres/genre_search", genres: @genres %>
       <!--フォロー・フォロワーボタン-->
@@ -57,9 +57,11 @@
       </table>
       <%= paginate @infos %>
 
+      <% if @user == current_user %>
       <div class="bookmarks mt-5"><!--ブックマーク一覧を表示-->
         <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,0 +1,13 @@
+<div class='container px-5 px-sm-0' >
+  <div class='row'>
+    <div class='side-bar col-md-3 mt-5'>
+      <!--グループ投稿フォーム-->
+      <h5 class="mt-4 mb-3">グループの新規作成</h5>
+      <%= render 'form', group: @group %><!--新規投稿フォーム-->
+    </div>
+    <div class='col-md-8 offset-md-1 mt-4'>
+      <h3>グループ一覧</h3>
+      <%= render 'index', groups: @groups %>
+    </div>
+  </div>
+</div>

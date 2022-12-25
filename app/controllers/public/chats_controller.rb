@@ -20,7 +20,6 @@ class Public::ChatsController < ApplicationController
   def create
     @chat = current_user.chats.new(chat_params)
     @chat.save
-    #byebug
     #if @chat.save
       #redirect_to request.referer
     #else
