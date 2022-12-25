@@ -31,8 +31,14 @@ Info.create!(
    [
    {title: 'サンプル', body: 'この投稿はサンプルです', user_id: 1, genre_id: 1},
    {title: 'テスト', body: 'この投稿はテストです', user_id: 2, genre_id: 2},
-   {title: '見本', body: 'この投稿は見本です', user_id: 2, genre_id: 3}
+   {title: '見本', body: 'この投稿は見本です', user_id: 3, genre_id: 3}
    ]
 )
+
+Group.create!(
+  [
+    {name: 'サンプルグループ', introduction: 'このグループはサンプルです', owner_id: 1}
+  ]
+  )
 
 
