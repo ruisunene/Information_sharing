@@ -37,7 +37,8 @@ Info.create!(
 
 Group.create!(
   [
-    {name: 'サンプルグループ', introduction: 'このグループはサンプルです', owner_id: 1}
+    {name: 'サンプルグループ', introduction: 'このグループはサンプルです', owner_id: 1},
+    {name: 'テストグループ', introduction: 'このグループはテスト用です', owner_id: 1},
   ]
   )
 
