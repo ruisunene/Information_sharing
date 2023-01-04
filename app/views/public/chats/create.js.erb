@@ -1,5 +1,5 @@
 $('#chat_message').val("")
-$('#message-list tbody').append('<tr><td><p class="px-3" style="display: inline-block; text-align: left; background-color:#00EE00; border-radius: 30px;"><%= @chat.message %></p></td><td></td></tr>');
+$('#message-list tbody').append('<tr><td><p class="current-message px-3"><%= @chat.message %></p></td><td></td></tr>');
 
 
 <!--メッセージ送信後、スクロールの最下部にに自動スクロール-->

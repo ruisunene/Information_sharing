@@ -4,7 +4,7 @@
       <div class="chat-partner col-12">
       <table class="table table-borderless" style="background-color:#fff;">
         <tr>
-          <td><h3 class="m-3 "><%= @user.name %>さんとのチャット</h3></td>
+          <td><h3 class="mt-5"><%= @user.name %>さんとのチャット</h3></td>
           <td class= "w-30 py-3 px-5">
             <%= link_to 'ユーザー情報に戻る', user_path, class: 'btn btn-primary mt-2'%>
           </td>
@@ -14,12 +14,12 @@
 
       <div class="message-index messageindex col-12" id="scroll-inner" >
       <table id="message-list" class="table table-borderless ml-3 pb-5">
-        <tbody style="background-color:#eee;">
+        <tbody class="current-message-tbody">
           <% @chats.each do |chat| %>
             <% if chat.user_id == current_user.id %>
             <tr>
               <td>
-                <p class="px-3" style="display: inline-block; text-align: left; background-color:#00EE00; border-radius: 30px;">
+                <p class="current-message px-3" >
                   <%= safe_join(chat.message.split("\n"),tag(:br)) %>
                   <!--safe_join フォームのtext_areaに対応、改行なフォームに入力したままの文を表示させるため-->
                 </p>
@@ -29,8 +29,8 @@
             <% else %>
             <tr>
               <td></td>
-              <td style="text-align: right;">
-                <p class="text-white px-3" style="display: inline-block; text-align: right; background-color:#000; border-radius: 100px;">
+              <td class="user-message-td">
+                <p class="user-message text-white px-3">
                   <%= safe_join(chat.message.split("\n"),tag(:br)) %>
                 </p>
               </td>

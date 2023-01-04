@@ -42,6 +42,27 @@ footer { height: 50px; }
     overflow-y: scroll;
 }
 
+.current-message-tbody{
+    background-color:#eee;
+}
+.current-message{
+    display: inline-block;
+   text-align: left;
+    background-color:#00EE00;
+    border-radius: 30px;
+}
+
+.user-message-td{
+    text-align: right;
+}
+.user-message{
+    display: inline-block;
+    text-align: right;
+    background-color:#000;
+    border-radius: 100px;
+}
+
+
 
 .chat-form{
     bottom: 50px;
