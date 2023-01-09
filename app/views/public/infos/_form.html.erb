@@ -1,13 +1,12 @@
 <!--新規投稿フォーム部分テンプレート-->
-<h5 class="mt-4 mb-3">新規情報投稿</h5>
-<%= form_with model: info, local:true do |f| %>
+<%= form_with model: info, local: true do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control pb-5' %>
+    <%= f.text_area :body, class: 'form-control pb-5', size: "20x15" %>
   </div>
   <div class="form-group">
     <%= f.label :genre_id, class: 'col-md-6' %>

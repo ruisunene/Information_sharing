@@ -4,6 +4,11 @@ class Public::InfosController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
 #投稿機能
+
+  def new
+    @info = Info.new
+  end
+
   def create
     @info = Info.new(info_params)
     @info.user_id = current_user.id
@@ -12,9 +17,9 @@ class Public::InfosController < ApplicationController
     else
       #遷移後投稿一覧で必要な記述
       @info_new = Info.new #この記述がないとrender後の投稿機能が動作しない
-      @infos = Info.page(params[:page]).per(15)#投稿が15件でページが変わる
-      @genres = Genre.all#ジャンル一覧を表示
-      render 'index'
+      #@infos = Info.page(params[:page]).per(15)#投稿が15件でページが変わる
+      #@genres = Genre.all#ジャンル一覧を表示
+      render 'new'
     end
   end
 

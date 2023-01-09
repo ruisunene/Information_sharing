@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   	  get 'followings' => 'relationships#followings', as: 'followings'
   	  get 'followers' => 'relationships#followers', as: 'followers'
     end
-    resources :infos, only:[:index, :show, :edit,:create, :destroy, :update] do
+    resources :infos do
       resource :bookmarks, only: [:create, :destroy]
       resources :info_comments, only: [:create, :destroy, :edit,:update]
       resources :memos, only: [:create, :destroy, :edit, :update]

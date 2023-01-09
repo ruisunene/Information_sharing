@@ -8,7 +8,7 @@ ja:
       info:
         title: タイトル
         body: 内容
-        genre: ジャンル
+        genre_id: ジャンル
       user:
         name: 名前
         phone_number: 電話番号

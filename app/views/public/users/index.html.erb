@@ -5,7 +5,8 @@
     <div class='side-bar col-md-3 mt-5'>
         <!--ジャンル検索-->
         <%= render "admin/genres/genre_search", genres: @genres %>
-        <%= render 'public/infos/form', info: @info%>
+        <%= render 'public/infos/new', info: @info%>
+        <%#= render 'public/infos/form', info: @info%>
     </div>
     <!--ユーザーの一覧-->
     <div class='col-md-8 offset-md-1 mt-4'>

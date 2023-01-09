@@ -9,7 +9,8 @@
       <!--フォロー・フォロワーボタン-->
       <%= render 'public/relationships/count', user: @user%>
       <!--投稿フォーム-->
-      <%= render 'public/infos/form', info: @info_new%>
+      <%= render 'public/infos/new', info: @info%>
+      <%#= render 'public/infos/form', info: @info_new%>
     </div>
     <!--投稿の一覧-->
     <div class='col-md-8 offset-md-1 mt-4'>
