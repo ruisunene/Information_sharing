@@ -1,13 +1,23 @@
 <!--ユーザー用のジャンル一覧-->
 <div class="table-responsive mt-3">
   <table class="table table-bordered border border-dark">
-    <thead class="text-white bg-dark">
+    <thead class="bg-dark">
       <tr>
-        <th>ジャンル検索一覧</th>
+        <th>
+          <a class="text-white"
+            data-toggle="collapse"
+            href="#collapseExample"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+          >
+            ジャンル一覧(クリック)
+          </a>
+        </th>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="collapse" id="collapseExample">
     <% genres.each do |genre| %>
       <tr>
         <td>

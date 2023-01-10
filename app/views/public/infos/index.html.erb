@@ -4,6 +4,7 @@
     <!--サイドバー-->
     <div class='side-bar col-md-3 mt-5'>
       <!--ジャンル検索-->
+      <%= render "public/users/info", user: current_user %>
       <%= render "admin/genres/genre_search", genres: @genres %>
       <!--投稿のエラーメッセージ-->
       <%#= render 'layouts/errors', obj: @info %>
