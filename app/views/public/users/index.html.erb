@@ -6,6 +6,7 @@
         <!--ジャンル検索-->
         <%= render "admin/genres/genre_search", genres: @genres %>
         <%= render 'public/infos/new', info: @info%>
+        <h5><%#= link_to  "ブックマーク", url: info_bookmarks_path(@info.id), class: 'btn btn-info w-100' %></h5>
         <%#= render 'public/infos/form', info: @info%>
     </div>
     <!--ユーザーの一覧-->

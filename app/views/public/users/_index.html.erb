@@ -2,16 +2,18 @@
 <table class='table table-bordered border border-dark'>
   <thead class="text-white bg-dark">
     <tr>
-      <th width="20%">氏名</th>
-      <th width="30%">メールアドレス</th>
-      <th width="25%">電話番号</th>
-      <th width="25%">役職</th>
+      <th>イメージ</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>電話番号</th>
+      <th>役職</th>
     </tr>
   </thead>
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, user %></td>
+        <td><%#= image_tag user.get_profile_image, size: '50x50' %></td>
+        <td><%= image_tag user.get_profile_image, size: '50x50' %><%= link_to user.name, user %></td>
         <td><%= user.email %></td>
         <td><%= user.phone_number%></td>
         <td><%= user.job %></td>
