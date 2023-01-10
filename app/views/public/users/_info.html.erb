@@ -1,0 +1,37 @@
+<table class='table table-borderless'>
+  <tr><%= image_tag user.get_profile_image, size:'150x150' %></tr>
+  <tr>
+	  <th>氏名</th>
+	  <th><%= user.name %></th>
+	</tr>
+	<tr>
+	  <th>役職</th>
+	  <th><%= user.job %></th>
+  </tr>
+  </table>
+  <table class='table table-borderless'>
+    <% if user == current_user %><!--ログインユーザーの詳細ページのみ編集ボタンとフォローフォロワーの人数を表示-->
+  <tr>
+    <td>
+        <%= link_to 'ユーザー情報編集', edit_user_path(user), class: 'btn btn-success w-100' %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= render 'public/relationships/count', user: @user %>
+    </td>
+  </tr>
+  <% end %>
+  <% if current_user != user %>
+  <tr>
+    <td>
+        <%= link_to 'チャットを開始', user_chat_path(user.id), class: 'btn btn-success w-100' %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <%= render "public/relationships/btn", user: user %>
+    </td>
+  </tr>
+  <% end %>
+</table>
