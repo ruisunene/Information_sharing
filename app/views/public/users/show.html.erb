@@ -3,15 +3,22 @@
   <div class='row'>
     <!--サイドバー-->
     <div class='side-bar col-md-3 mt-5'>
-      <%#= render "public/users/login_user", user: @user %>
-      <!--ジャンル検索-->
+      <!--ユーザー情報-->
       <%= render "info", user: @user %>
-      <%= render "admin/genres/genre_search", genres: @genres %>
-      <!--フォロー・フォロワーボタン-->
-      <%#= render 'public/relationships/count', user: @user %>
+      <!--ジャンル・ブックマークのアコーディオン-->
+      <div class="accordion" id="accordionExample">
+        <!--ジャンル検索一覧-->
+        <%= render "admin/genres/genre_search", genres: @genres %>
+        <!--ブックマーク一覧/マイページのみ表示-->
+        <% if @user == current_user %>
+          <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
+        <% end %>
+      </div>
+
       <!--投稿フォーム-->
       <%= render 'public/infos/new', info: @info %>
       <%#= render 'public/infos/form', info: @info_new%>
+
     </div>
     <!--投稿の一覧-->
     <div class='col-md-8 offset-md-1 mt-4'>
@@ -40,7 +47,7 @@
 
       <% if @user == current_user %>
       <div class="bookmarks mt-5"><!--ブックマーク一覧を表示-->
-        <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
+        <%#= render "public/bookmarks/index", bookmarks: @bookmarks %>
       </div>
       <% end %>
     </div>

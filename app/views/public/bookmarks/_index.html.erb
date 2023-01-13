@@ -1,34 +1,25 @@
 <!--ブックマーク一覧部分テンプレート-->
-<h3 class="my-4">ブックマーク一覧</h3>
-  <table class="table table-bordered border border-dark">
-    <thead class="text-white bg-dark">
-      <tr>
-        <th width="25%">投稿日時</th>
-        <th width="20%">投稿者</th>
-        <th width="23%">タイトル</th>
-        <th width="20%">ジャンル</th>
-        <th width="12%">コメント</th>
-      </tr>
-    </thead>
-
-    <tbody>
-    <% bookmarks.reverse_each do |bookmark| %>
-      <tr>
-        <td><u><%= bookmark.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
-        <td>
-          <%= link_to user_path(bookmark.info.user) do %>
-            <%= bookmark.info.user.name %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to info_path(bookmark.info) do %>
-            <%= bookmark.info.title %>
-          <% end %>
-        </td>
-        <td><%= bookmark.info.genre.name %></td>
-        <td><%= bookmark.info.info_comments.count %>件</td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-<%= paginate bookmarks %>
+<div class="card mb-4">
+  <div class="card-header bg-dark" id="headingTwo">
+    <h5 class="mb-0">
+      <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        ブックマーク一覧
+      </button>
+    </h5>
+  </div>
+  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+    <div class="card-body">
+      <tbody>
+      <% @bookmarks.reverse_each do |bookmark| %>
+        <tr>
+          <td>
+            <%= link_to info_path(bookmark.info), class: 'nav-link text-dark' do %>
+              <%= bookmark.info.title %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </div>
+  </div>
+</div>

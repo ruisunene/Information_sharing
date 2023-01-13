@@ -1,32 +1,28 @@
 <!--ユーザー用のジャンル一覧-->
-<div class="table-responsive mt-3">
-  <table class="table table-bordered border border-dark">
-    <thead class="bg-dark">
-      <tr>
-        <th>
-          <a class="text-white"
-            data-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            ジャンル一覧(クリック)
-          </a>
-        </th>
-      </tr>
-    </thead>
-
-    <tbody class="collapse" id="collapseExample">
-    <% genres.each do |genre| %>
-      <tr>
-        <td>
-          <%= link_to infos_path(genre_id: genre.id) , class: 'nav-link text-dark' do %>
-            <%= genre.name %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+<div class="card mb-4">
+  <div class="card-header bg-secondary" id="headingOne">
+    <h5 class="mb-0">
+      <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        ジャンル検索一覧
+      </button>
+    </h5>
+  </div>
+  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div class="card-body">
+      <tbody>
+      <% @genres.each do |genre| %>
+        <tr>
+          <td>
+            <%= link_to infos_path(genre_id: genre.id) , class: 'nav-link text-dark' do %>
+              <%= genre.name %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </div>
+  </div>
 </div>
+
+
+
