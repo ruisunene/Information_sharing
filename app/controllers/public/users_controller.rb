@@ -12,8 +12,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @infos = @user.infos.page(params[:page]).per(5)#自分の投稿を表示。5件でページが変わる
-    @info_new = Info.new
-    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(5)#自分がブックマークをした投稿を表示。5件でページが
+    @bookmarks = Bookmark.where(user_id: current_user.id)
     @genres = Genre.all
   end
 
