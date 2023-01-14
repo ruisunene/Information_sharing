@@ -1,6 +1,6 @@
 <!--ブックマークの選択-->
 <% if @info.bookmarked_by?(current_user) %>
-  <td><%= link_to "ブックマークを外す", info_bookmarks_path(@info), method: :delete %></td>
+  <%= link_to "ブックマークを外す", info_bookmarks_path(@info), method: :delete, class: "btn btn-danger mr-3" %>
 <% else %>
-  <td><%= link_to "ブックマーク", info_bookmarks_path(@info), method: :post %></td>
+  <%= link_to "ブックマーク", info_bookmarks_path(@info), method: :post, class: "btn btn-success mr-3" %>
 <% end %>

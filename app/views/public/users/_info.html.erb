@@ -1,6 +1,6 @@
 <% if user == current_user %>
+<div class="text-center mb-3"><%= image_tag user.get_profile_image, size:'150x150',class: "rounded-circle" %></div>
 <table class='table table-borderless'>
-  <tr><%= image_tag user.get_profile_image, size:'150x150' %></tr>
   <tr>
 	  <th>氏名</th>
 	  <th><%= link_to(user) do %>
@@ -14,7 +14,7 @@
   </tr>
   </table>
   <table class='table table-borderless'>
-    <%# if user == current_user %><!--ログインユーザーの詳細ページのみ編集ボタンとフォローフォロワーの人数を表示-->
+    <!--ログインユーザーの詳細ページのみ編集ボタンとフォローフォロワーの人数を表示-->
   <tr>
     <td>
         <%= link_to 'ユーザー情報編集', edit_user_path(user), class: 'btn btn-success w-100' %>
@@ -27,14 +27,15 @@
   </tr>
 </table>
 <% else %>
+ <div class="text-center mb-3"><%= image_tag user.get_profile_image, size:'150x150',class: "rounded-circle" %></div>
 <table class='table table-borderless'>
-  <tr><%= image_tag user.get_profile_image, size:'150x150' %></tr>
   <tr>
 	  <th>投稿者</th>
-	  <th><%= link_to(user) do %>
-          <%= user.name %>
+	  <th>
+	    <%= link_to(user) do %>
+        <%= user.name %>
       <% end %>
-      </th>
+    </th>
 	</tr>
 	<tr>
 	  <th>役職</th>

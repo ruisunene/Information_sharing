@@ -45,12 +45,6 @@
         </tbody>
       </table>
       <%= paginate @infos %>
-
-      <% if @user == current_user %>
-      <div class="bookmarks mt-5"><!--ブックマーク一覧を表示-->
-        <%#= render "public/bookmarks/index", bookmarks: @bookmarks %>
-      </div>
-      <% end %>
     </div>
   </div>
 </div>

@@ -1,38 +1,40 @@
-<% if user_signed_in? %>
-  <% if @model == 'user' %>
-  <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
-    <h3 class="my-3">ユーザー検索 "<%= @content %>"</h3>
-    <%= render 'public/users/index', users: @records %>
-  </div>
-  <% elsif @model == 'info' %>
-  <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
-  	<h3 class="my-3">情報検索 "<%= @content %>"</h3>
-    <%= render 'public/infos/index', infos: @records %>
-  </div>
-  <% elsif @model == 'group' %>
-  <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
-  	<h3 class="my-3">グループ検索 "<%= @content %>"</h3>
-    <%= render 'public/groups/index', groups: @records %>
-  </div>
-  <% end %>
-<% end %>
+    <div class='col-md-8 offset-md-1 mt-4'>
+      <% if user_signed_in? %>
+        <% if @model == 'user' %>
+        <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
+          <h3 class="my-3">ユーザー検索 "<%= @content %>"</h3>
+          <%= render 'public/users/index', users: @records %>
+        </div>
+        <% elsif @model == 'info' %>
+        <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
+        	<h3 class="my-3">情報検索 "<%= @content %>"</h3>
+          <%= render 'public/infos/index', infos: @records %>
+        </div>
+        <% elsif @model == 'group' %>
+        <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
+        	<h3 class="my-3">グループ検索 "<%= @content %>"</h3>
+          <%= render 'public/groups/index', groups: @records %>
+        </div>
+        <% end %>
+      <% end %>
 
 
-<% if admin_signed_in? %>
-  <% if @model == 'user' %>
-  <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
-  	<h3 class="my-3">ユーザー検索 "<%= @content %>"</h3>
-    <%= render 'admin/users/index', users: @records %>
-  </div>
-  <% elsif @model == 'info' %>
-  <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
-  	<h3 class="my-3">情報検索 "<%= @content %>"</h3>
-    <%= render 'admin/infos/index', infos: @records %>
-  </div>
-  <% elsif @model == 'group' %>
-  <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
-  	<h3 class="my-3">グループ検索 "<%= @content %>"</h3>
-    <%= render 'admin/groups/index', groups: @records %>
-  </div>
-  <% end %>
-<% end %>
+      <% if admin_signed_in? %>
+        <% if @model == 'user' %>
+        <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
+        	<h3 class="my-3">ユーザー検索 "<%= @content %>"</h3>
+          <%= render 'admin/users/index', users: @records %>
+        </div>
+        <% elsif @model == 'info' %>
+        <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
+        	<h3 class="my-3">情報検索 "<%= @content %>"</h3>
+          <%= render 'admin/infos/index', infos: @records %>
+        </div>
+        <% elsif @model == 'group' %>
+        <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
+        	<h3 class="my-3">グループ検索 "<%= @content %>"</h3>
+          <%= render 'admin/groups/index', groups: @records %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
