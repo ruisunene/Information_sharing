@@ -1,5 +1,16 @@
+<div class='container px-5 px-sm-0' >
+  <div class='row'>
+    <% if user_signed_in? %>
+    <div class='side-bar col-md-3 mt-5'>
+      <!--ジャンル検索-->
+      <%= render "public/users/info", user: current_user %>
+      <div class="accordion" id="accordionExample">
+        <%= render "admin/genres/genre_search", genres: @genres %>
+      </div>
+      <!--投稿フォーム-->
+      <%= render 'public/infos/new', info: @info %>
+    </div>
     <div class='col-md-8 offset-md-1 mt-4'>
-      <% if user_signed_in? %>
         <% if @model == 'user' %>
         <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
           <h3 class="my-3">ユーザー検索 "<%= @content %>"</h3>
@@ -17,6 +28,7 @@
         </div>
         <% end %>
       <% end %>
+      </div>
 
 
       <% if admin_signed_in? %>
@@ -38,3 +50,5 @@
         <% end %>
       <% end %>
     </div>
+  </div>
+</div>

@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "infos#index"
-    #get '/search', to: 'searches#search'
     resources :users, only:[:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
     resources :infos, only: [:index, :show, :edit, :update, :destroy] do
@@ -27,7 +26,6 @@ Rails.application.routes.draw do
 
   scope module: :public do #scope moduleでurlにpublicと付ける必要がなくなる
    root to: "homes#top"
-    #get '/search', to: 'searches#search'
     resources :users, only:[:index, :show, :edit, :update] do
       get 'chat/:id', to: 'chats#show', as: 'chat'
       resources :chats, only: [:create]
