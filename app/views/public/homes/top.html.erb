@@ -4,9 +4,10 @@
     <%#= render 'layouts/errors', obj: @info %>
     <div class='col-md-3'>
       <!--ジャンル検索-->
-      <div class="genre_search pt-4">
       <%= render "public/users/info", user: current_user %>
+      <div class="accordion" id="accordionExample">
       <%= render "admin/genres/genre_search", genres: @genres %>
+      <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
       </div>
       <!--新規投稿フォーム-->
       <%= render 'public/infos/new', info: @info%>

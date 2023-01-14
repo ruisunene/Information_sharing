@@ -9,10 +9,8 @@
       <div class="accordion" id="accordionExample">
         <!--ジャンル検索一覧-->
         <%= render "admin/genres/genre_search", genres: @genres %>
-        <!--ブックマーク一覧/マイページのみ表示-->
-        <% if @user == current_user %>
-          <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
-        <% end %>
+        <!--ブックマーク一覧-->
+        <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
       </div>
 
       <!--投稿フォーム-->
