@@ -7,6 +7,7 @@
       <%= render "public/users/info", user: current_user %>
       <div class="accordion" id="accordionExample">
         <%= render "admin/genres/genre_search", genres: @genres %>
+        <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
       </div>
       <!--投稿フォーム-->
       <%= render 'new', info: @info %>

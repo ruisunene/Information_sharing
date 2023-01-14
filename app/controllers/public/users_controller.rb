@@ -4,14 +4,14 @@ class Public::UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
 #ユーザー機能
   def index
-    @info = Info.new
     @genres = Genre.all
     @users = User.page(params[:page]).per(15)
+    @bookmarks = Bookmark.where(user_id: current_user.id)
   end
 
   def show
     @user = User.find(params[:id])
-    @infos = @user.infos.page(params[:page]).per(15)#自分の投稿を表示。15件でページが変わる
+    @infos = @user.infos.page(params[:page]).per(15).order(created_at: :desc)#自分の投稿を表示。15件でページが変わる
     @bookmarks = Bookmark.where(user_id: current_user.id)
     @genres = Genre.all
   end

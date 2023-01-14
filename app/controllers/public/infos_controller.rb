@@ -15,17 +15,13 @@ class Public::InfosController < ApplicationController
     if @info.save
       redirect_to info_path(@info), notice: "投稿に成功しました"
     else
-      #遷移後投稿一覧で必要な記述
-      @info_new = Info.new #この記述がないとrender後の投稿機能が動作しない
-      #@infos = Info.page(params[:page]).per(15)#投稿が15件でページが変わる
-      #@genres = Genre.all#ジャンル一覧を表示
       render 'new'
     end
   end
 
   def index
-    @info_new = Info.new
     @genres = Genre.all
+    @bookmarks = Bookmark.where(user_id: current_user.id)
     #ジャンルの検索結果を抽出
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
@@ -43,10 +39,10 @@ class Public::InfosController < ApplicationController
 
   def show
     @info = Info.find(params[:id])
-    @info_new = Info.new
     @info_comment = InfoComment.new
     @memo = Memo.new
     @genres = Genre.all
+    @bookmarks = Bookmark.where(user_id: current_user.id)
   end
 
   def edit

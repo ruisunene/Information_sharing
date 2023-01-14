@@ -34,7 +34,7 @@
         </thead>
 
         <tbody>
-        <% @infos.reverse_each do |info| %>
+        <% @infos.each do |info| %>
           <tr>
             <td><u><%= info.created_at.strftime('%Y/%m/%d　%H:%M') %><u></td>
             <td><%= link_to info.title,info_path(info.id) %></td>
