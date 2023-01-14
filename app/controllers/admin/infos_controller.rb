@@ -6,12 +6,12 @@ class Admin::InfosController < ApplicationController
     @genres = Genre.all
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
-      @infos = @genre.infos.page(params[:page]).per(15)
+      @infos = @genre.infos.page(params[:page]).per(15).order(created_at: :desc)
     elsif @search_infos
-      @infos = @search_infos.page(params[:page]).per(15)
+      @infos = @search_infos.page(params[:page]).per(15).order(created_at: :desc)
     else
       @info = Info.find_by(params[:id])#find_byで複数の投稿を取得
-      @infos = Info.page(params[:page]).per(15)
+      @infos = Info.page(params[:page]).per(15).order(created_at: :desc)
     end
   end
 

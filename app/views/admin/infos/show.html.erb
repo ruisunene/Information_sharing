@@ -32,7 +32,7 @@
         <table class='table'>
         <tr>
           <td class="border border-dark">
-            <%= safe_join(@info.body.split("\n"),tag(:br)) %>
+            <%= Rinku.auto_link(@info.body, :all, 'target="_blank"').html_safe %> <%= Rinku.auto_link(@info.body, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
           </td>
         </tr>
         <tr>

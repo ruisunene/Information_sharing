@@ -30,14 +30,14 @@ class Public::InfosController < ApplicationController
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
       @info = Info.find_by(params[:info_id])
-      @infos = @genre.infos.page(params[:page]).per(15)
+      @infos = @genre.infos.page(params[:page]).per(15).order(created_at: :desc)
     elsif @search_infos
       @info = Info.find_by(params[:info_id])
-      @infos = @search_infos.page(params[:page]).per(15)
+      @infos = @search_infos.page(params[:page]).per(15).order(created_at: :desc)
     else
       #投稿を抽出
       @info = Info.find_by(params[:info_id])
-      @infos = Info.page(params[:page]).per(15)
+      @infos = Info.page(params[:page]).per(15).order(created_at: :desc)
     end
   end
 

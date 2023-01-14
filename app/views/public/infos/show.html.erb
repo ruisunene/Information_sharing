@@ -41,7 +41,12 @@
         <tbody>
           <tr>
             <td class="border border-dark">
-              <%= safe_join(@info.body.split("\n"),tag(:br)) %>
+<!--投稿にURLの記述がある場合、リンクを表示させる-->
+<!--改行を反映する為にbyebugでRinku.auto_link(@info.body, :all, 'target="_blank"').html_safeを検証-->
+<!--改行一つにつき\r\nが表示されるため、gsubで<br>に変換-->
+<!--最後にhtml_safeで前記の文字列をコードとして安全だと認識させている-->
+              <%= Rinku.auto_link(@info.body, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
+
               </td>
           </tr>
           <% if @info.user == current_user %><!--ログインユーザーの投稿のみ編集・削除可能-->

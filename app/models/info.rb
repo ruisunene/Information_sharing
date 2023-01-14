@@ -25,4 +25,6 @@ class Info < ApplicationRecord
     end
   end
 
+
+
 end
