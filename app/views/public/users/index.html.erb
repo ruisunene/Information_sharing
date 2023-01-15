@@ -2,14 +2,8 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <!--サイドバー-->
-    <div class='side-bar col-md-3 mt-5'>
-        <!--ジャンル検索-->
-        <%= render "info", user: current_user %>
-        <div class="accordion" id="accordionExample">
-        <%= render "admin/genres/genre_search", genres: @genres %>
-        <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
-        </div>
-        <%= render 'public/infos/new', info: @info%>
+    <div class='col-md-3 mt-5'>
+      <%= render 'sidebar', info: @info, user: current_user, genres: @genres, bookmarks: @bookmarks %>
     </div>
     <!--ユーザーの一覧-->
     <div class='col-md-8 offset-md-1 mt-4'>

@@ -1,0 +1,10 @@
+<!--サイドバーの部分テンプレート-->
+<!--ユーザー情報-->
+<%= render "public/users/info", user: current_user %>
+<!--ジャンル一覧とブックマーク一覧のアコーディオン-->
+  <div class="accordion" id="accordionExample">
+    <%= render "admin/genres/genre_search", genres: genres %>
+    <%= render "public/bookmarks/index", bookmarks: bookmarks %>
+  </div>
+  <!--投稿フォームへの遷移-->
+<%= render 'public/infos/new', info: info %>

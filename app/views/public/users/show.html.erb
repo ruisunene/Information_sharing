@@ -3,20 +3,7 @@
   <div class='row'>
     <!--サイドバー-->
     <div class='side-bar col-md-3 mt-5'>
-      <!--ユーザー情報-->
-      <%= render "info", user: @user %>
-      <!--ジャンル・ブックマークのアコーディオン-->
-      <div class="accordion" id="accordionExample">
-        <!--ジャンル検索一覧-->
-        <%= render "admin/genres/genre_search", genres: @genres %>
-        <!--ブックマーク一覧-->
-        <%= render "public/bookmarks/index", bookmarks: @bookmarks %>
-      </div>
-
-      <!--投稿フォーム-->
-      <%= render 'public/infos/new', info: @info %>
-      <%#= render 'public/infos/form', info: @info_new%>
-
+      <%= render 'sidebar', info: @info, user: current_user, genres: @genres, bookmarks: @bookmarks %>
     </div>
     <!--投稿の一覧-->
     <div class='col-md-8 offset-md-1 mt-4'>

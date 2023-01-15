@@ -2,10 +2,26 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto" >
   		<h2 class="my-4">新規投稿</h2>
-  		<!--投稿のエラー表示-->
+  		<!--エラー表示-->
   		<%= render 'layouts/errors', obj: @info %>
       <!--投稿フォーム-->
-  		<%= render 'form', info: @info %>
+  		<%= form_with model: @info, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body %>
+          <%= f.text_area :body, class: 'form-control pb-5', size: "20x15" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :genre_id, class: 'col-md-6' %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択してください"%><!--f.collection_select=プルダウンの選択肢-->
+        </div>
+        <div class="form-group">
+          <%= f.submit :投稿する, class: 'btn btn-success col-4  ' %>
+        </div>
+      <% end %>
   	</div>
   </div>
 </div>
