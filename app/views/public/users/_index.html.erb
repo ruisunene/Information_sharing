@@ -2,15 +2,17 @@
 <table class='table table-bordered border border-dark'>
   <thead class="text-white bg-dark">
     <tr>
-      <th width="34%">氏名</th>
-      <th width="33%">電話番号</th>
-      <th width="33%">役職</th>
+      <th width="15%">アイコン</th>
+      <th width="25%">氏名</th>
+      <th width="30%">連絡先</th>
+      <th width="30%">役職</th>
     </tr>
   </thead>
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= image_tag user.get_profile_image, size: '50x50' %><%= link_to user.name, user %></td>
+        <td class="text-center"><%= image_tag user.get_profile_image, size: '50x50' %></td>
+        <td><%= link_to user.name, user %></td>
         <td><%= user.phone_number%></td>
         <td><%= user.job %></td>
       </tr>
