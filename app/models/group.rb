@@ -5,6 +5,7 @@ class Group < ApplicationRecord
   validates :name, presence: true
   validates :introduction, presence: true
 
+  #グループの検索
   def self.search_for(content, method)
     if method == 'perfect'
       Group.where(name: content)
