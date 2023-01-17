@@ -5,8 +5,8 @@
 	  <th>氏名</th>
 	  <th><%= link_to(user) do %>
           <%= user.name %>
-      <% end %>
-      </th>
+        <% end %>
+    </th>
 	</tr>
 	<tr>
 	  <th>役職</th>
@@ -22,7 +22,7 @@
   </tr>
   <tr>
     <td>
-      <%= render 'public/relationships/count', user: @user %>
+      <%= render 'public/relationships/count', user: user %>
     </td>
   </tr>
 </table>
@@ -50,7 +50,7 @@
   </tr>
   <tr>
     <td>
-        <%= render "public/relationships/btn", user: user %>
+      <%= render "public/relationships/btn", user: user %>
     </td>
   </tr>
   <% end %>
