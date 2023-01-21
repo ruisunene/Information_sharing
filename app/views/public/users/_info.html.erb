@@ -17,11 +17,11 @@
     <!--ログインユーザーの詳細ページのみ編集ボタンとフォローフォロワーの人数を表示-->
   <tr>
     <td>
-        <%= link_to 'ユーザー情報編集', edit_user_path(user), class: 'btn btn-success w-100' %>
+      <%= link_to 'ユーザー情報編集', edit_user_path(user), class: 'btn btn-success w-100' %>
     </td>
   </tr>
   <tr>
-    <td>
+    <td><!--フォロー・フォロワーの人数とリンク-->
       <%= render 'public/relationships/count', user: user %>
     </td>
   </tr>
@@ -44,14 +44,14 @@
 </table>
 <table class='table table-borderless'>
   <tr>
-    <td>
+    <td><!--チャットへの遷移ボタン-->
       <%= render "public/chats/btn", user: user %>
     </td>
   </tr>
   <tr>
-    <td>
+    <td><!--フォローの切り替えボタン-->
       <%= render "public/relationships/btn", user: user %>
     </td>
   </tr>
-  <% end %>
 </table>
+<% end %>

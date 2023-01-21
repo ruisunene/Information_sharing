@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       resource :bookmarks, only: [:create, :destroy]
       resources :info_comments, only: [:create, :destroy, :edit,:update]
       resources :memos, only: [:create, :destroy, :edit, :update]
+      resources :tags, only: [:index, :show, :destroy]
       #get '/search', to: 'searches#search'ここだとエラー
     end
     resources :groups do

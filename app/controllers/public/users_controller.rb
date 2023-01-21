@@ -14,6 +14,7 @@ class Public::UsersController < ApplicationController
     @infos = @user.infos.page(params[:page]).per(15).order(created_at: :desc)#自分の投稿を表示。15件でページが変わる
     @bookmarks = Bookmark.where(user_id: current_user.id)
     @genres = Genre.all
+  
   end
 
   def edit

@@ -12,6 +12,7 @@ class Public::InfosController < ApplicationController
     @info = Info.new(info_params)
     @info.user_id = current_user.id #投稿とユーザーを紐付け
     if @info.save
+      @info.save_tags(params[:info][:tag])
       redirect_to info_path(@info), notice: "投稿に成功しました"
     else
       render 'new'
@@ -39,6 +40,7 @@ class Public::InfosController < ApplicationController
 
   def show
     @info = Info.find(params[:id])
+    @user = @info.user
     @info_comment = InfoComment.new
     @memo = Memo.new
     @genres = Genre.all
@@ -52,6 +54,7 @@ class Public::InfosController < ApplicationController
   def update
     @info = Info.find(params[:id])
     if @info.update(info_params)
+      @info.save_tags(params[:info][:tag])
       redirect_to info_path(@info.id), notice: "更新できました"
     else
       render :edit
