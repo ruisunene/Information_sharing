@@ -10,17 +10,17 @@
     <!--投稿の詳細-->
     <div class='col-md-8 offset-md-1 mt-4'>
   		<h3><b><%=@info.title %></b></h3><!--投稿のタイトル-->
-  		<h3>Tags --></h3>
-        <ul>
-          <%# 該当のPostからアソシエーションでタグを取得 %>
-          <% @info.tags.each do |tag| %>
-            <%# タグを展開 %>
-            <li>
-              <%= link_to tag.name, info_tag_path(tag) %>
-            </li>
-          <% end %>
-        </ul>
-  		<div class="text-right mb-2"><%= render "public/bookmarks/check", bookmarks: @bookmarks %></div><!--ブックマークの切り替えボタン-->
+
+  		  <table class='table table-borderless'>
+  		    <tr>
+  		      <th width="75%">
+  		        <% @info.tags.each do |tag| %>
+                ・<%= link_to tag.name, info_tag_path(tag) %>
+              <% end %>
+            </th>
+            <th width="25%"><%= render "public/bookmarks/check", bookmarks: @bookmarks %></th><!--ブックマークの切り替えボタン-->
+  		    </tr>
+  		  </table>
   		<table class='table table-bordered'>
   		  <thead class="text-white bg-dark">
           <tr>

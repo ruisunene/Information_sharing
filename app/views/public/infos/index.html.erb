@@ -6,11 +6,11 @@
       <%= render 'public/users/sidebar', info: @info, user: current_user, genres: @genres, bookmarks: @bookmarks %>
     </div>
 
-    <h2>Tag Actions --></h2>
-    <%= link_to 'Tags List', info_tags_path %>
-
     <!--投稿の一覧-->
     <div class='col-md-8 offset-md-1 mt-4'>
+
+    <%= link_to 'タグ一覧', info_tags_path(tag) %>
+
       <h3 class="mb-3">情報一覧</h3>
       <%= render 'index', infos: @infos %>
     </div>
