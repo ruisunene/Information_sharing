@@ -9,7 +9,7 @@
   <% @tags.each do |tag| %>
     <li>
       <%# タグの名前と、関連付く記事数を表示 %>
-      <%= link_to "#{tag.name} ( infos: #{tag.infos.count} )", info_tag_path(tag) %>
+      <%= link_to "#{tag.name} ( #{tag.infos.count} )",info_tags_url(tag)%>
     </li>
   <% end %>
 </ul>
