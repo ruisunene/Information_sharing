@@ -4,19 +4,20 @@
   <tbody>
   <% info.info_comments.each do |info_comment| %>
     <tr>
-      <td class="p-2">
+      <td width="20%">
         <%= link_to user_path(info_comment.user) do %>
           <%= info_comment.user.name %>
         <% end %>
       </td>
-      <td class="p-2 w-50">
-        <%= safe_join(info_comment.comment.split("\n"),tag(:br)) %>
+      <td width="50%">
+        <%= Rinku.auto_link(info_comment.comment, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
+        <%#= safe_join(info_comment.comment.split("\n"),tag(:br)) %>
       </td>
       <% if info_comment.user == current_user %>
-      <td class="p-2">
+      <td width="15%">
         <%= link_to "編集", edit_info_info_comment_path(info, info_comment), class: "btn btn-success pull-right"%>
       </td>
-      <td class="p-2">
+      <td width="15%">
         <%= link_to "削除", info_info_comment_path(info, info_comment), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
       </td>
       <% end %>

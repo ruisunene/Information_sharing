@@ -20,7 +20,8 @@
             <tr>
               <td>
                 <p class="current-message px-3" >
-                  <%= safe_join(chat.message.split("\n"),tag(:br)) %>
+                   <%= Rinku.auto_link(chat.message, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
+                  <%#= safe_join(chat.message.split("\n"),tag(:br)) %>
                   <!--safe_join フォームのtext_areaに対応、改行なフォームに入力したままの文を表示させるため-->
                 </p>
               </td>
@@ -31,7 +32,8 @@
               <td></td>
               <td class="user-message-td">
                 <p class="user-message text-white px-3">
-                  <%= safe_join(chat.message.split("\n"),tag(:br)) %>
+                  <%= Rinku.auto_link(chat.message, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
+                  <%#= safe_join(chat.message.split("\n"),tag(:br)) %>
                 </p>
               </td>
             </tr>

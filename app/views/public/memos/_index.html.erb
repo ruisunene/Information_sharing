@@ -5,11 +5,11 @@
   <% info.memos.each do |memo| %>
     <tr>
       <% if memo.user == current_user %><!--ログインユーザーのみメモのみ編集・削除可能-->
-      <td class="p-2 w-75"><%= safe_join(memo.memo.split("\n"),tag(:br)) %></td>
-      <td class="p-2">
+      <td width="70%"><%= Rinku.auto_link(memo.memo, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %><%#= safe_join(memo.memo.split("\n"),tag(:br)) %></td>
+      <td width="15%">
         <%= link_to "編集", edit_info_memo_path(info, memo), class: "btn btn-success pull-right"%>
       </td>
-      <td class="p-2">
+      <td width="15%">
         <%= link_to "削除", info_memo_path(info, memo), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger pull-right", remote: true %>
       </td>
       <% end %>
