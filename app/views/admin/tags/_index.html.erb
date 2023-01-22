@@ -1,0 +1,21 @@
+<!--管理者側のタグ一覧部分テンプレート-->
+<div class="card mb-4">
+  <div id="headingThree">
+    <h5 class="mb-0">
+      <button class="btn btn-dark w-100 text-white" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        タグ一覧
+      </button>
+    </h5>
+  </div>
+  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+    <div class="card-body">
+      <ul>
+        <% tags.each do |tag| %>
+          <li>
+            <%= link_to "#{tag.name} ( #{tag.infos.count} )", admin_tag_path(tag) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ class Admin::InfosController < ApplicationController
   before_action :authenticate_admin!
 #投稿の管理
   def index
+    @tags = Tag.all
     @info = Info.new
     @genres = Genre.all
     if params[:genre_id]
@@ -16,6 +17,7 @@ class Admin::InfosController < ApplicationController
   end
 
   def show
+    @tags = Tag.all
     @info = Info.find(params[:id])
     @info_new = Info.new
     @info_comment = InfoComment.new

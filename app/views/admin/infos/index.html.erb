@@ -3,7 +3,10 @@
   <div class='row'>
     <div class='col-md-3 mt-5'>
       <!--ジャンル一覧-->
-      <%= render "admin/genres/admin_genre_search", genres: @genres %>
+      <div class="accordion" id="accordionExample">
+        <%= render "admin/genres/admin_genre_search", genres: @genres %>
+        <%= render "admin/tags/index", tags: @tags %>
+      </div>
     </div>
     <!--投稿の一覧-->
     <div class='col-md-8 offset-md-1 mt-4'>

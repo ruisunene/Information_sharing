@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'tags/show'
+  end
   devise_for :admin, skip: [:registrations,:passwords] ,controllers:{
     sessions: "admin/sessions"
   }
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
     root to: "infos#index"
     resources :users, only:[:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update, :destroy]
+    resources :tags, only: [:show, :destroy ]
     resources :infos, only: [:index, :show, :edit, :update, :destroy] do
     resources :info_comments, only: [:create, :destroy, :edit, :update]
     end

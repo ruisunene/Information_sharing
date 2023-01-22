@@ -2,11 +2,13 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    @tags = Tag.all
     @users = User.page(params[:page]).per(15)
     @genres = Genre.all
   end
 
   def show
+    @tags = Tag.all
     @user = User.find(params[:id])
     @infos = @user.infos.page(params[:page]).per(15)
     @genres = Genre.all
