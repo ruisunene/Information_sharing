@@ -7,10 +7,14 @@
       </div>
     </div>
     <div class='col-md-8 offset-md-1 mt-4'>
-    <h3><%= @tag.name %></h3>
-
+      <table>
+        <tr>
+          <td width="75%"> <h3><%= @tag.name %></h3></td>
+          <td width="25%"><%= link_to 'このタグを削除する', admin_tag_path(@tag), class: 'btn btn-danger', method: :delete, data: {confirm: '関連づいた記事のタグが空になりますがタグを削除しますか？'} %></td>
+        </tr>
+      </table>
     <%# タグに関連付く記事一覧 %>
-    <table class="table table-bordered border border-dark" >
+    <table class="table table-bordered border border-dark mt-4" >
       <thead class="text-white bg-dark">
         <tr>
           <th width="25%">投稿日時</th>

@@ -11,6 +11,9 @@
 
     <div class='col-md-8 offset-md-1 mt-4'>
   		<h3><b><%= @info.title %></b></h3>
+  		<p><% @info.tags.each do |tag| %>
+          ・<%= link_to tag.name, admin_tag_path(tag) %>
+         <% end %></p>
   		<table class='table table-bordered'>
   		  <thead class="text-white bg-dark">
           <tr>
