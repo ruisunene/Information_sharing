@@ -33,11 +33,11 @@ Rails.application.routes.draw do
   	  get 'followings' => 'relationships#followings', as: 'followings'
   	  get 'followers' => 'relationships#followers', as: 'followers'
     end
+    resources :tags, only: [:show]
     resources :infos do
       resource :bookmarks, only: [:create, :destroy]
       resources :info_comments, only: [:create, :destroy, :edit,:update]
       resources :memos, only: [:create, :destroy, :edit, :update]
-      resources :tags, only: [:index, :show, :destroy]
       #get '/search', to: 'searches#search'ここだとエラー
     end
     resources :groups do

@@ -11,7 +11,7 @@
   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
     <div class="card-body">
       <tbody>
-      <% @bookmarks.reverse_each do |bookmark| %>
+      <% bookmarks.reverse_each do |bookmark| %>
         <tr>
           <td>
             <%= link_to info_path(bookmark.info), class: 'nav-link text-dark' do %>

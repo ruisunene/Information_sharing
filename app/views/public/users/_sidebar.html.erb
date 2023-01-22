@@ -6,7 +6,8 @@
   <div class="accordion" id="accordionExample">
     <%= render "admin/genres/genre_search", genres: genres %>
     <%= render "public/bookmarks/index", bookmarks: bookmarks %>
+    <%= render "public/tags/index", tags: tags %>
   </div>
-  <h5 class="mb-4"><%= link_to 'タグ一覧', info_tags_url(tag), class: 'btn btn-primary w-100' %></h5>
+  <!--<h5 class="mb-4"><%#= link_to 'タグ一覧', info_tags_url(tag), class: 'btn btn-primary w-100' %></h5>-->
   <!--投稿フォームへの遷移-->
 <%= render 'public/infos/new', info: info %>

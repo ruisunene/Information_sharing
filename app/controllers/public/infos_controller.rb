@@ -20,6 +20,7 @@ class Public::InfosController < ApplicationController
   end
 
   def index
+    @tags = Tag.all
     @genres = Genre.all
     @bookmarks = Bookmark.where(user_id: current_user.id)#ブックマークの表示をログインしているユーザーに紐付け
     #ジャンルの検索結果を抽出
@@ -39,6 +40,7 @@ class Public::InfosController < ApplicationController
   end
 
   def show
+    @tags = Tag.all
     @info = Info.find(params[:id])
     @user = @info.user
     @info_comment = InfoComment.new

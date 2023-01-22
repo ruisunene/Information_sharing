@@ -4,7 +4,7 @@
     <!--サイドバー-->
     <div class='side-bar col-md-3 mt-5'>
 
-      <%= render 'public/users/sidebar', info: @info, user: @user, genres: @genres, bookmarks: @bookmarks %>
+      <%= render 'public/users/sidebar', info: @info, user: @user, genres: @genres, bookmarks: @bookmarks, tags: @tags %>
     </div>
 
     <!--投稿の詳細-->
@@ -13,12 +13,12 @@
 
   		  <table class='table table-borderless'>
   		    <tr>
-  		      <th width="75%">
+  		      <th width="70%">
   		        <% @info.tags.each do |tag| %>
-                ・<%= link_to tag.name, info_tag_path(tag) %>
+                ・<%= link_to tag.name, tag_path(tag) %>
               <% end %>
             </th>
-            <th width="25%"><%= render "public/bookmarks/check", bookmarks: @bookmarks %></th><!--ブックマークの切り替えボタン-->
+            <th width="30%"><%= render "public/bookmarks/check", bookmarks: @bookmarks %></th><!--ブックマークの切り替えボタン-->
   		    </tr>
   		  </table>
   		<table class='table table-bordered'>

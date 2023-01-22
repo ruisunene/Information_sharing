@@ -7,6 +7,7 @@ class Public::HomesController < ApplicationController
     @infos = Info.where("created_at >= ?", Date.today).page(params[:page]).per(15).order(created_at: :desc)
     @genres = Genre.all
     @bookmarks = Bookmark.where(user_id: current_user.id)
+    @tags = Tag.all
   end
 
 end
