@@ -14,6 +14,7 @@ ja:
         name: 名前
         phone_number: 電話番号
         job: 役職
+        status: 会員ステータス
       memo:
         memo: メモ
       info_comment:
