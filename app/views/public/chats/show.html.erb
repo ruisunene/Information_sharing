@@ -19,8 +19,9 @@
             <% if chat.user_id == current_user.id %>
             <tr>
               <td>
+                <small><%= chat.created_at.strftime('%m/%d　%H:%M') %></small><br>
                 <p class="current-message px-3" >
-                   <%= Rinku.auto_link(chat.message, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
+                   <%= Rinku.auto_link(chat.message, :all, 'target="_blank"').gsub(/\n|\r|\r\n/, "<br>").html_safe %>
                   <%#= safe_join(chat.message.split("\n"),tag(:br)) %>
                   <!--safe_join フォームのtext_areaに対応、改行なフォームに入力したままの文を表示させるため-->
                 </p>
@@ -31,8 +32,9 @@
             <tr>
               <td></td>
               <td class="user-message-td">
+                <small><%= chat.created_at.strftime('%m/%d　%H:%M') %></small><br>
                 <p class="user-message text-white px-3">
-                  <%= Rinku.auto_link(chat.message, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
+                  <%= Rinku.auto_link(chat.message, :all, 'target="_blank"').gsub(/\n|\r|\r\n/, "<br>").html_safe %>
                   <%#= safe_join(chat.message.split("\n"),tag(:br)) %>
                 </p>
               </td>
@@ -46,7 +48,7 @@
 
       <div class="chat-form border border-dark col-12 ">
         <%= form_with model: @chat,url: user_chats_path(@user.id), local: false, method: :post  do |f| %>
-          <%= f.text_area :message, rows:'1', placeholder: "メッセージを入力してください" ,class: 'w-75 mt-4 ml-4' %>
+          <%= f.text_area :message, rows:'4', placeholder: "メッセージを入力してください" ,class: 'w-75 mt-4 ml-4' %>
           <%= f.hidden_field :room_id %>
           <%= f.submit "送信", class:"btn btn-success btn-lg  ml-3" %>
         <% end %>

@@ -40,16 +40,33 @@ footer { height: 50px; }
     /*下記 チャット画面・遷移後ページの一番下が表示されるようにするための記述*/
     height: calc(100vh - 160px - 120px);
     overflow-y: scroll;
+    width: 100%;
+	table-layout: fixed;
+}
+
+.chat-table{
+    /*下記 チャット画面・遷移後ページの一番下が表示されるようにするための記述*/
+    height: calc(100vh - 160px - 120px);
+    overflow-y: scroll;
+    width: 100%;
+	table-layout: fixed;
 }
 
 .current-message-tbody{
     background-color:#eee;
+
 }
+
 .current-message{
     display: inline-block;
     text-align: left;
     background-color:#00EE00;
-    border-radius: 30px;
+    border-radius: 20px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    /*width: 250px;
+    word-wrap: break-word;*/
+
 }
 
 .user-message-td{
@@ -59,7 +76,11 @@ footer { height: 50px; }
     display: inline-block;
     text-align: right;
     background-color:#000;
-    border-radius: 100px;
+    border-radius: 30px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    /*width: 250px;
+    word-wrap: break-word;*/
 }
 
 
@@ -71,7 +92,3 @@ footer { height: 50px; }
     border-radius: 10px;
 }
 
-
-.profile_image{
-
-}

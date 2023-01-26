@@ -1,11 +1,11 @@
 $('#chat_message').val("")
-$('#message-list tbody').append('<tr><td><p class="current-message px-3"><%= @chat.message %></p></td><td></td></tr>');
+$('#message-list tbody').append('<tr><td>' + '<small>' + `<%= @chat.created_at.strftime('%m/%d　%H:%M') %>` + '</small><br />' + '<p class="current-message px-3">' + `<%= Rinku.auto_link(@chat.message, :all, 'target="_blank"').gsub(/\n|\r|\r\n/, "<br>").html_safe %>` + '</p></td><td></td></tr>');
 
 
 <!--メッセージ送信後、スクロールの最下部にに自動スクロール-->
  function scrollToEnd() { <!--関数を定義-->
         const messageindex = document.getElementById('scroll-inner'); <!--定数を宣言し、IDを取得-->
-        messageindex.scrollTop = messageindex.scrollHeight;　<!--スクロールの最上部と高さを取得-->
-    }
+       messageindex.scrollTop = messageindex.scrollHeight;　<!--スクロールの最上部と高さを取得-->
+   }
     scrollToEnd()<!--関数を実行 スクロールの最下部へ移動-->
 
