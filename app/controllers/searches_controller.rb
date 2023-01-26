@@ -1,6 +1,9 @@
 class SearchesController < ApplicationController
+	
 	def search
 		@genres = Genre.all
+		@bookmarks = Bookmark.where(user_id: current_user.id)
+		@tags = Tag.all
 		@model = params[:model]
 		@content = params[:content]
 		@method = params[:method]
