@@ -21,7 +21,7 @@
     </tr>
     <tr>
       <td colspan="4">
-        <%= Rinku.auto_link(info_comment.comment, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
+        <%= Rinku.auto_link(info_comment.comment, :all, 'target="_blank"').gsub(/\n|\r|\r\n/, "<br>").html_safe %>
       </td>
     </tr>
   </tbody>

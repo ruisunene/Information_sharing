@@ -22,7 +22,7 @@
                 <small><%= chat.created_at.strftime('%m/%d　%H:%M') %></small><br>
                 <p class="current-message px-3" >
                    <%= Rinku.auto_link(chat.message, :all, 'target="_blank"').gsub(/\n|\r|\r\n/, "<br>").html_safe %>
-                  <%#= safe_join(chat.message.split("\n"),tag(:br)) %>
+                  <%#= safe_join(chat.message.split("\n"),tag(:br)) %><!--元の記述・改行を反映させるため-->
                   <!--safe_join フォームのtext_areaに対応、改行なフォームに入力したままの文を表示させるため-->
                 </p>
               </td>
