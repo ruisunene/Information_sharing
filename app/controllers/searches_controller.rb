@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-	
+
 	def search
 		@genres = Genre.all
 		@bookmarks = Bookmark.where(user_id: current_user.id)

@@ -1,11 +1,11 @@
 <div class='container px-5 px-sm-0' >
   <div class='row'>
     <% if user_signed_in? %>
-    <div class='col-md-3 mt-5'>
-      <%= render 'public/users/sidebar', info: @info, user: current_user, genres: @genres, bookmarks: @bookmarks, tags: @tags %>
+    <div>
+      <%#= render 'public/users/sidebar', info: @info, user: current_user, genres: @genres, bookmarks: @bookmarks, tags: @tags %>
     </div>
 
-    <div class='col-md-8 offset-md-1 mt-4'>
+    <div class='offset-md-1 col-md-10 offset-md-1 mt-4'>
         <% if @model == 'user' %>
           <h3 class="my-3">ユーザー検索 "<%= @content %>"</h3>
           <%= render 'public/users/index', users: @records %>

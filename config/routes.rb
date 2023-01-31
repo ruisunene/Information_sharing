@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :infos, only: [:index, :show, :edit, :update, :destroy] do
     resources :info_comments, only: [:create, :destroy, :edit, :update]
     end
-    resources :groups do
+    resources :groups, only:[:index, :show, :edit, :update, :destroy] do
       delete "all_destroy" => 'groups#all_destroy'
     end
   end
@@ -42,9 +42,8 @@ Rails.application.routes.draw do
       resource :bookmarks, only: [:create, :destroy]
       resources :info_comments, only: [:create, :destroy, :edit,:update]
       resources :memos, only: [:create, :destroy, :edit, :update]
-      #get '/search', to: 'searches#search'ここだとエラー
     end
-    resources :groups do
+    resources :groups , only: [:create, :destroy, :index, :show, :edit, :update]do
       get "join" => "groups#join"
         delete "all_destroy" => 'groups#all_destroy'
     end
