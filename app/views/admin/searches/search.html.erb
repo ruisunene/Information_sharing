@@ -1,0 +1,25 @@
+<div class='container px-5 px-sm-0' >
+  <div class='row'>
+
+    <div class='side-bar col-md-3 mt-5'>
+      <div class="accordion" id="accordionExample">
+        <%= render "admin/genres/admin_genre_search", genres: @genres %>
+        <%= render "admin/tags/index", tags: @tags %>
+      </div>
+    </div>
+
+    <div class='col-md-8 offset-md-1 mt-4'>
+      <% if @model == 'user' %>
+      	<h3 class="my-3">ユーザー検索 "<%= @content %>"</h3>
+        <%= render 'admin/users/index', users: @records %>
+      <% elsif @model == 'info' %>
+      	<h3 class="my-3">情報検索 "<%= @content %>"</h3>
+        <%= render 'admin/infos/index', infos: @records %>
+      <% elsif @model == 'group' %>
+      	<h3 class="my-3">グループ検索 "<%= @content %>"</h3>
+        <%= render 'admin/groups/index', groups: @records %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

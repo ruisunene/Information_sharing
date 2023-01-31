@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :groups, only:[:index, :show, :edit, :update, :destroy] do
       delete "all_destroy" => 'groups#all_destroy'
     end
+    get 'search' => 'searches#search', as: 'search'
   end
 
   scope module: :public do #scope moduleでurlにpublicと付ける必要がなくなる
@@ -47,9 +48,10 @@ Rails.application.routes.draw do
       get "join" => "groups#join"
         delete "all_destroy" => 'groups#all_destroy'
     end
+    get 'search' => 'searches#search', as: 'search'
   end
 
-  get '/search', to: 'searches#search'
+  #get '/search', to: 'searches#search'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,6 +1,8 @@
 class Admin::SearchesController < ApplicationController
+
 	def search
 		@genres = Genre.all
+		@tags = Tag.all
 		@model = params[:model]
 		@content = params[:content]
 		@method = params[:method]
