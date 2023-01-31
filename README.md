@@ -29,7 +29,8 @@
 ![45EB76FE-5F47-42B6-8B0C-2E781F4F8A14_1_201_a](https://user-images.githubusercontent.com/114806430/215674359-e2f2a99b-d1cd-425a-9e7f-2693686586b5.jpeg)
 
 ### アプリケーション詳細設計
-![Uploading 09402789-D838-4805-8762-65B6E14B1590_1_201_a.jpeg…]()
+![09402789-D838-4805-8762-65B6E14B1590_1_201_a](https://user-images.githubusercontent.com/114806430/215709678-b004f870-b65a-44b6-9f62-d4947f405b89.jpeg)
+
 
 ## 開発環境
 - OS：Linux(CentOS)
