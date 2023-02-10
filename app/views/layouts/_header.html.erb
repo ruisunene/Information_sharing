@@ -18,6 +18,7 @@
               <!--顧客側ログイン中のheader-->
               <% if user_signed_in? %> <!--顧客側がログイン中か確認する-->
                   <li><%= render 'public/searches/form' %></li>
+                  <li><%= link_to "使い方",about_path, class: 'nav-link text-light' %></li>
                   <il><%= link_to "マイページ", user_path(current_user) ,class: 'nav-link text-light' %></il>
                   <li><%= link_to "情報", infos_path, class: 'nav-link text-light' %></li>
                   <li><%= link_to "ユーザー", users_path, class: 'nav-link text-light' %></li>

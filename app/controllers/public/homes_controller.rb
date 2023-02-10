@@ -10,4 +10,5 @@ class Public::HomesController < ApplicationController
     @tags = Tag.all
   end
 
+
 end

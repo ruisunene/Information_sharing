@@ -45,11 +45,10 @@
         <tbody>
           <tr>
             <td class="border border-dark">
-              <%= Rinku.auto_link(@info.body, :all, 'target="_blank"').gsub("\r\n", "<br>").html_safe %>
+              <%= raw Rinku.auto_link(@info.body, :all, 'target="_blank"').gsub("\r\n", "<br>") %>
               <!--投稿にURLの記述がある場合、リンクを表示させる-->
-              <!--改行を反映する為にbyebugでRinku.auto_link(@info.body, :all, 'target="_blank"').html_safeを検証-->
+              <!--target="_blank URLを別のタブで表示できるようにする-->
               <!--改行一つにつき\r\nが表示されるため、gsubで<br>に変換-->
-              <!--最後にhtml_safeで前記の文字列をコードとして安全だと認識させている-->
             </td>
           </tr>
           <% if @info.user == current_user %><!--ログインユーザーの投稿のみ編集・削除ボタンを表示-->

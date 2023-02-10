@@ -12,8 +12,10 @@ Rails.application.routes.draw do
 }
 
   devise_scope :user do
+
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
+
 
   namespace :admin do
     root to: "infos#index"
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do #scope moduleでurlにpublicと付ける必要がなくなる
+  get "home/about"=>"homes#about", as: 'about'
    root to: "homes#top"
     resources :users, only:[:index, :show, :edit, :update] do
       get 'chat/:id', to: 'chats#show', as: 'chat'
