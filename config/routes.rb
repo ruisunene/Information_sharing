@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
 
-
   namespace :admin do
     root to: "infos#index"
     resources :users, only:[:index, :show, :edit, :update]
@@ -31,8 +30,7 @@ Rails.application.routes.draw do
     get 'search' => 'searches#search', as: 'search'
   end
 
-  scope module: :public do #scope moduleでurlにpublicと付ける必要がなくなる
-  get "home/about"=>"homes#about", as: 'about'
+  scope module: :public do#scope moduleでurlにpublicと付ける必要がなくなる
    root to: "homes#top"
     resources :users, only:[:index, :show, :edit, :update] do
       get 'chat/:id', to: 'chats#show', as: 'chat'
@@ -54,8 +52,7 @@ Rails.application.routes.draw do
     get 'search' => 'searches#search', as: 'search'
   end
 
-  #get '/search', to: 'searches#search'
-
+  get '/about' => "about#about", as: 'about'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -18,7 +18,6 @@
               <!--顧客側ログイン中のheader-->
               <% if user_signed_in? %> <!--顧客側がログイン中か確認する-->
                   <li><%= render 'public/searches/form' %></li>
-                  <li><%= link_to "使い方",about_path, class: 'nav-link text-light' %></li>
                   <il><%= link_to "マイページ", user_path(current_user) ,class: 'nav-link text-light' %></il>
                   <li><%= link_to "情報", infos_path, class: 'nav-link text-light' %></li>
                   <li><%= link_to "ユーザー", users_path, class: 'nav-link text-light' %></li>
@@ -27,6 +26,7 @@
               <!--顧客側のheader-->
               <% else %><!--非ログイン時に表示するheader-->
                 <% unless admin_signed_in? %>
+                  <li><%= link_to "使い方",about_path, class: 'nav-link text-light' %></li>
                   <li><%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %></li><!--新規登録へのリンク-->
                   <li><%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %></li><!--ログイン画面へのリンク-->
                   <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'nav-link text-light' %></li>
