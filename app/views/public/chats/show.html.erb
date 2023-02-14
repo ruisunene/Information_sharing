@@ -12,8 +12,8 @@
       </table>
       </div>
 
-      <div class="message-index messageindex col-12" id="scroll-inner" >
-      <table id="message-list" class="table table-borderless ml-3 pb-5">
+      <div class="message-index col-12" id="scroll-inner" ><!--id=ページのスクロール用-->
+      <table id="message-list" class="table table-borderless ml-3 pb-5"><!--id=メッセージの非同期用-->
         <tbody class="current-message-tbody">
           <% @chats.each do |chat| %>
             <% if chat.user_id == current_user.id %>
